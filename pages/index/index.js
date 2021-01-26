@@ -5,27 +5,24 @@ const app = getApp()
 Page({
   data: {
     motto: 'Hello World',
-    list:[1,2,3,4,5],
-    button:true,
-    accountList:[],
+    list: [1, 2, 3, 4, 5],
+    button: true,
+    accountList: [],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   btn() {
-   
     console.log(this.data.button);
     if (this.data.button) {
       this.setData({
-        button : false
+        button: false
       })
     } else {
       this.setData({
-        button : true
+        button: true
       })
     }
-    
-   
   },
   // 事件处理函数
   bindViewTap() {
@@ -37,13 +34,13 @@ Page({
     wx.request({
       url: 'http://127.0.0.1:8087/Login/queryAll.do',
       header: {
-        'content-type': 'application/json' ,// 默认值
+        'content-type': 'application/json', // 默认值
       },
-      success :res => {
+      success: res => {
         this.setData({
           accountList: res.data.result
         })
-      } 
+      }
     })
     if (app.globalData.userInfo) {
       this.setData({
@@ -71,8 +68,8 @@ Page({
         }
       })
     }
-  
   },
+  
   getUserInfo(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
