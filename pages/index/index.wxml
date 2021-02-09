@@ -8,20 +8,21 @@
     </block>
   </view> -->
   <view>
-    <text class="title"> 饿了吗的弟弟</text>
     <view class="btn-area">
       <navigator url="/pages/Login/Login" hover-class="navigator-hover">登录页面</navigator>
-      <navigator url="/pages/Login/Login" open-type="redirect"
-        hover-class="other-navigator-hover">在当前页打开</navigator>
-     
+      <navigator url="/pages/Login/Login" open-type="redirect" hover-class="other-navigator-hover">在当前页打开</navigator>
     </view>
-
   </view>
-  <view wx:for="{{accountList}}" wx:key="key">
-    <view class="index">
-      <image src="{{userInfo.avatarUrl}}" class="image"></image>
-      <text >{{item.accountName}}</text>
+  <view class="table">
+    <view class="tr">
+      <view class="th">用户名</view>
+      <view class="th">权限</view>
+      <view class="th">是否停用</view>
     </view>
-
+    <view class="tr" wx:for="{{accountList}}" wx:key="key">
+      <view class="td">{{item.accountName}}</view>
+      <view class="td">{{item.accountLimit}}</view>
+      <view class="td">{{item.accountBan}}</view>
+    </view>
   </view>
 </view>

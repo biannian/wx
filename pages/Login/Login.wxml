@@ -1,0 +1,29 @@
+<view>
+  <view class="LoginInput">
+    <button size="mini" bindtap="getPasswordLogin">账户密码登录</button>
+    <button size="mini" bindtap="PhoneNumberLogin">手机号登录</button>
+    <form action="">
+      <view wx:if="{{passwordLogin}}">
+        <form action="">
+        <view class="itemView">
+          <input name="userName" class="weui-input" placeholder="用户名" type="text" />
+        </view>
+        <view class="itemView">
+          <input name="password" password="true" placeholder="密码" type="text" />
+        </view>
+        <button  type="default">登录</button> <button>注册</button>
+      </form>
+      </view>
+      <view wx:else>
+        <view class="itemView">
+          <input value="{{phoneNumber}}" placeholder="手机号" type="text" />
+        </view>
+        <button>获取验证码</button>
+        <view class="itemView">
+          <input placeholder="验证码" type="text" />
+        </view>
+        <button bindtap="login" type="default">登录</button>
+      </view>
+    </form>
+  </view>
+</view>

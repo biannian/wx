@@ -37,6 +37,7 @@ Page({
         'content-type': 'application/json', // 默认值
       },
       success: res => {
+        console.log(res);
         this.setData({
           accountList: res.data.result
         })
