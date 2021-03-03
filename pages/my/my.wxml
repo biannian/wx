@@ -1,0 +1,3 @@
+<view>my
+  <navigator url="/pages/Login/Login" hover-class="navigator-hover">登录</navigator>
+</view>

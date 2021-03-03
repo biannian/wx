@@ -1,28 +1,97 @@
-<!--index.wxml-->
-<view>
-  <!-- <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view> -->
-  <view>
-    <view class="btn-area">
-      <navigator url="/pages/Login/Login" hover-class="navigator-hover">登录页面</navigator>
-      <navigator url="/pages/Login/Login" open-type="redirect" hover-class="other-navigator-hover">在当前页打开</navigator>
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="page__hd">
+  </view>
+  <view class="page__bd">
+    <view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+      <form class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <i class="weui-icon-search"></i>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}"
+            focus="{{inputShowed}}" bindinput="inputTyping" />
+          <span class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></span>
+        </view>
+        <label class="weui-search-bar__label" bindtap="showInput">
+          <i class="weui-icon-search"></i>
+          <span class="weui-search-bar__text">搜索</span>
+        </label>
+      </form>
+      <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
     </view>
   </view>
-  <view class="table">
-    <view class="tr">
-      <view class="th">用户名</view>
-      <view class="th">权限</view>
-      <view class="th">是否停用</view>
-    </view>
-    <view class="tr" wx:for="{{accountList}}" wx:key="key">
-      <view class="td">{{item.accountName}}</view>
-      <view class="td">{{item.accountLimit}}</view>
-      <view class="td">{{item.accountBan}}</view>
-    </view>
+  <view class="weui-grids">
+    <a class="weui-grid" wx:key = "id" wx:for="4" style="width:25%">
+      <view class="weui-grid__icon">
+        <image style="width:100%;height:100%" src="/images/food.jpg" alt></image>
+      </view>
+      <view class="weui-grid__label">美食</view>
+    </a>
+    <a class="weui-grid" style="width:25%">
+      <view class="weui-grid__icon">
+        <image style="width:100%;height:100%" src="/images/naicha.jpg" alt></image>
+      </view>
+      <view class="weui-grid__label">奶茶</view>
+    </a>
+    <a class="weui-grid" style="width:25%">
+      <view class="weui-grid__icon">
+        <image style="width:100%;height:100%" src="/images/dagao.jpg" alt></image>
+      </view>
+      <view class="weui-grid__label">甜品</view>
+    </a>
+    <a class="weui-grid" style="width:25%">
+      <view class="weui-grid__icon">
+        <image style="width:100%;height:100%" src="/images/shuiguo.jpg" alt></image>
+      </view>
+      <view class="weui-grid__label">水果</view>
+    </a>
+    <a class="weui-grid" style="width:25%">
+      <view class="weui-grid__icon">
+        <image style="width:100%;height:100%" src="/images/shuiguo.jpg" alt></image>
+      </view>
+      <view class="weui-grid__label">水果</view>
+    </a>
+    <a class="weui-grid" style="width:25%">
+      <view class="weui-grid__icon">
+        <image style="width:100%;height:100%" src="/images/shuiguo.jpg" alt></image>
+      </view>
+      <view class="weui-grid__label">水果</view>
+    </a>
+    <a class="weui-grid" style="width:25%">
+      <view class="weui-grid__icon">
+        <image style="width:100%;height:100%" src="/images/shuiguo.jpg" alt></image>
+      </view>
+      <view class="weui-grid__label">水果</view>
+    </a>
+    <a class="weui-grid" style="width:25%">
+      <view class="weui-grid__icon">
+        <image style="width:100%;height:100%" src="/images/shuiguo.jpg" alt></image>
+      </view>
+      <view class="weui-grid__label">水果</view>
+    </a>
   </view>
+
+
+  <view class="weui-panel__bd">
+				<a class="weui-media-box weui-media-box_appmsg">
+					<view class="weui-media-box__hd">
+						<image class="weui-media-box__thumb" src="/images/shuiguo.jpg" alt></image>
+					</view>
+					<view class="weui-media-box__bd">
+						<h4 class="weui-media-box__title">圈儿の水果店</h4>
+            <view class="weui-media-box__desc"><p style="color:red">5分</p>    销量:1000</view>
+            <view class="weui-media-box__desc">  起送:20￥   配送:2￥ </view>
+					</view>
+				</a>
+        <a class="weui-media-box weui-media-box_appmsg">
+					<view class="weui-media-box__hd">
+						<image class="weui-media-box__thumb" src="/images/shuiguo.jpg" alt></image>
+					</view>
+					<view class="weui-media-box__bd">
+						<h4 class="weui-media-box__title">圈儿の水果店</h4>
+            <view class="weui-media-box__desc"><p style="color:red">5分</p>    销量:1000</view>
+            <view class="weui-media-box__desc">  起送:20￥   配送:2￥ </view>
+					</view>
+        </a>
+        
+			</view>
+
 </view>

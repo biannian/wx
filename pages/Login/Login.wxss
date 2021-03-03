@@ -3,9 +3,7 @@
   margin-right: 20%;
   margin-top: 30%;
 }
-.itemView{
-
+/* .itemView{
   width: 70%;
   margin-right: 5%;
-  border: 1px solid gray;
-}
+} */

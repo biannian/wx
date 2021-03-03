@@ -1,31 +1,11 @@
-/**index.wxss**/
-.table {
-  border: 0px solid darkgray;
- }
- .tr {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  height: 3rem;
-  align-items: center;
- }
- .td {
-  width:40%;
-  justify-content: center;
-  text-align: center;
- }
- .bg-w{
-  background: snow;
- }
- .bg-g{
-  background: #E6F3F9;
- }
- .th {
-  width: 40%;
-  justify-content: center;
-  background: #3366FF;
-  color: #fff;
-  display: flex;
-  height: 3rem;
-  align-items: center;
- }
+.searchbar-result{
+  margin-top: 0;
+  font-size: 14px;
+}
+.searchbar-result .weui-cell__bd{
+padding: 2px 0 2px 20px;
+color: var(--weui-FG-1);
+}
+.searchbar-result:before{
+  display: none;
+}

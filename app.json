@@ -1,14 +1,44 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/commodity/commodity",
     "pages/Login/Login",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/order/order",
+    "pages/my/my"
   ],
+  "tabBar": {
+    "color": "#454545",
+    "selectedColor": "#F25B02",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "pages/resources/picture/shouye.png",
+        "selectedIconPath": "pages/resources/picture/shouyeSelected.png",
+        "text": "门店"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "pages/resources/picture/orderList.png",
+        "selectedIconPath": "pages/resources/picture/orderListSelected.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "pages/resources/picture/my.png",
+        "selectedIconPath": "pages/resources/picture/mySelected.png",
+        "text": "我的"
+      }
+    ]
+  },
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#409EFF",
+    "navigationBarTitleText": "饿了吗",
+    "navigationBarTextStyle":"white"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
