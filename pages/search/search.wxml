@@ -1,0 +1,57 @@
+<!-- <view class="top">
+  <view class="topsearch">
+    <view class="frame">
+      <input value="{{shoopingtext}}" bindinput="shoppinginput"></input>
+    </view>
+    <text bindtap="search">搜索</text>
+  </view>
+</view> -->
+
+
+<view class="page__bd">
+		<view   style="background-color:#409EFF" class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+			<form class="weui-search-bar__form">
+				<view class="weui-search-bar__box">
+					<i class="weui-icon-search"></i>
+                    <input type="text" class="weui-search-bar__input" placeholder="请输入店铺名" value="{{inputVal}}" />
+				</view>
+			</form>
+            <view style="color:white" bindtap="search">搜索</view>
+		</view>
+	
+	</view>
+
+
+
+
+<view class="history" wx:if="{{history}}">
+  <view class="history_title">
+    <text>历史搜索</text>
+    <image src="/images/delete.png" mode="widthFix" style="width:9%;" bindtap="cleanhistory"></image>
+  </view>
+  <view class="history_text">
+    <text wx:for="{{newArray}}" wx:key="key" data-text="{{item}}" bindtap="textfz">{{item}}</text>
+  </view>
+</view>
+<view class="none" wx:if="{{noneview}}">
+  <image src="/images/null.png" mode="widthFix" style="width:20%"></image>
+  <text>抱歉，没有相关店铺</text>
+</view>
+<view style="margin-top:10px" class="weui-panel__bd" wx:for="{{shops}}" wx:key="index"  wx:for-item="shop">
+    <a class="weui-media-box weui-media-box_appmsg">
+      <view class="weui-media-box__hd">
+        <image style="height:90px;width:90px;margin-top:-15px" src="{{shop.shopImg}}"></image>
+      </view>
+      <view class="weui-media-box__bd">
+        <h4 style="font-size:20px;margin-left:30px">{{shop.shopName}}</h4>
+        <view class="weui-media-box__desc">
+          <p style="font-size:16px;color:red;margin-left:30px">{{shop.shopScore}}分</p>
+          <p style="margin-left:20px">销量:{{shop.shopSalesVolume}}</p>
+        </view>
+        <view class="weui-media-box__desc">
+          <p style="margin-left:30px">起送:{{shop.shopStartPrice}}￥</p>
+          <p style="margin-left:10px"> 配送:{{shop.shopSendPrice}}￥</p>
+        </view>
+      </view>
+    </a>
+  </view>

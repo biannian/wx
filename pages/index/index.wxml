@@ -1,97 +1,99 @@
 <view class="page" data-weui-theme="{{theme}}">
-  <view class="page__hd">
-  </view>
   <view class="page__bd">
-    <view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+    <view style="background-color:#409EFF" class="weui-search-bar">
       <form class="weui-search-bar__form">
-        <view class="weui-search-bar__box">
-          <i class="weui-icon-search"></i>
-          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}"
-            focus="{{inputShowed}}" bindinput="inputTyping" />
-          <span class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></span>
+        <view class="weui-search-bar__box"> 
+          <input type="text" class="weui-search-bar__input" /> 
         </view>
-        <label class="weui-search-bar__label" bindtap="showInput">
+        <label class="weui-search-bar__label" bindtap="toSearch">
           <i class="weui-icon-search"></i>
-          <span class="weui-search-bar__text">搜索</span>
+          <span class="weui-search-bar__text">搜索店铺</span>
         </label>
       </form>
-      <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+
     </view>
+
   </view>
+
+
+
+
   <view class="weui-grids">
-    <a class="weui-grid" wx:key = "id" wx:for="4" style="width:25%">
-      <view class="weui-grid__icon">
-        <image style="width:100%;height:100%" src="/images/food.jpg" alt></image>
+    <a class="weui-grid" wx:key="id" wx:for="4" style="width:25%">
+      <view>
+        <cover-image style="width:55px;height:55px;margin-left:15px" src="/images/food.jpg"></cover-image>
       </view>
       <view class="weui-grid__label">美食</view>
     </a>
     <a class="weui-grid" style="width:25%">
-      <view class="weui-grid__icon">
-        <image style="width:100%;height:100%" src="/images/naicha.jpg" alt></image>
+      <view>
+        <cover-image style="width:55px;height:55px;margin-left:15px" src="/images/naicha.jpg"></cover-image>
+        <!-- <image style="width:100%;height:100%" src="/images/naicha.jpg" alt></image> -->
       </view>
       <view class="weui-grid__label">奶茶</view>
     </a>
     <a class="weui-grid" style="width:25%">
-      <view class="weui-grid__icon">
-        <image style="width:100%;height:100%" src="/images/dagao.jpg" alt></image>
+      <view>
+        <cover-image style="width:55px;height:55px;margin-left:15px" src="/images/dagao.jpg"></cover-image>
+        <!-- <image style="width:100%;height:100%" src="/images/dagao.jpg" alt></image> -->
       </view>
       <view class="weui-grid__label">甜品</view>
     </a>
     <a class="weui-grid" style="width:25%">
-      <view class="weui-grid__icon">
-        <image style="width:100%;height:100%" src="/images/shuiguo.jpg" alt></image>
+      <view>
+        <cover-image style="width:55px;height:55px;margin-left:15px" src="/images/shuiguo.jpg"></cover-image>
+        <!-- <image style="width:100%;height:100%" src="/images/shuiguo.jpg"></image> -->
       </view>
       <view class="weui-grid__label">水果</view>
     </a>
     <a class="weui-grid" style="width:25%">
-      <view class="weui-grid__icon">
-        <image style="width:100%;height:100%" src="/images/shuiguo.jpg" alt></image>
-      </view>
+      <cover-image style="width:55px;height:55px;margin-left:15px" src="/images/shuiguo.jpg"></cover-image>
       <view class="weui-grid__label">水果</view>
     </a>
     <a class="weui-grid" style="width:25%">
-      <view class="weui-grid__icon">
-        <image style="width:100%;height:100%" src="/images/shuiguo.jpg" alt></image>
-      </view>
+      <cover-image style="width:55px;height:55px;margin-left:15px" src="/images/shuiguo.jpg"></cover-image>
       <view class="weui-grid__label">水果</view>
     </a>
     <a class="weui-grid" style="width:25%">
-      <view class="weui-grid__icon">
-        <image style="width:100%;height:100%" src="/images/shuiguo.jpg" alt></image>
-      </view>
+      <cover-image style="width:55px;height:55px;margin-left:15px" src="/images/shuiguo.jpg"></cover-image>
       <view class="weui-grid__label">水果</view>
     </a>
     <a class="weui-grid" style="width:25%">
-      <view class="weui-grid__icon">
-        <image style="width:100%;height:100%" src="/images/shuiguo.jpg" alt></image>
+      <view>
+        <cover-image style="width:55px;height:55px;margin-left:15px" src="/images/shuiguo.jpg"></cover-image>
+        <!-- <image src="/images/shuiguo.jpg" alt></image> -->
       </view>
       <view class="weui-grid__label">水果</view>
     </a>
   </view>
+  <swiper style="margin-top:10px;margin-left:10px;margin-right:10px" indicator-dots="true" autoplay="true"
+    interval="2000" duration="500">
+    <block wx:for="123" wx:key="*this">
+      <swiper-item>
+        <cover-image src="/images/ashuiLong.png"></cover-image>
+        <view class="swiper-item {{item}}"></view>
+      </swiper-item>
+    </block>
+  </swiper>
 
 
-  <view class="weui-panel__bd">
-				<a class="weui-media-box weui-media-box_appmsg">
-					<view class="weui-media-box__hd">
-						<image class="weui-media-box__thumb" src="/images/shuiguo.jpg" alt></image>
-					</view>
-					<view class="weui-media-box__bd">
-						<h4 class="weui-media-box__title">圈儿の水果店</h4>
-            <view class="weui-media-box__desc"><p style="color:red">5分</p>    销量:1000</view>
-            <view class="weui-media-box__desc">  起送:20￥   配送:2￥ </view>
-					</view>
-				</a>
-        <a class="weui-media-box weui-media-box_appmsg">
-					<view class="weui-media-box__hd">
-						<image class="weui-media-box__thumb" src="/images/shuiguo.jpg" alt></image>
-					</view>
-					<view class="weui-media-box__bd">
-						<h4 class="weui-media-box__title">圈儿の水果店</h4>
-            <view class="weui-media-box__desc"><p style="color:red">5分</p>    销量:1000</view>
-            <view class="weui-media-box__desc">  起送:20￥   配送:2￥ </view>
-					</view>
-        </a>
-        
-			</view>
+  <view style="margin-top:10px" class="weui-panel__bd" wx:for="{{shops}}" wx:key="index" wx:for-item="shop">
+    <a class="weui-media-box weui-media-box_appmsg">
+      <view class="weui-media-box__hd">
+        <image style="height:90px;width:90px;margin-top:-15px" src="{{shop.shopImg}}"></image>
+      </view>
+      <view class="weui-media-box__bd">
+        <h4 style="font-size:20px;margin-left:30px">{{shop.shopName}}</h4>
+        <view class="weui-media-box__desc">
+          <p style="font-size:16px;color:red;margin-left:30px">{{shop.shopScore}}分</p>
+          <p style="margin-left:20px">销量:{{shop.shopSalesVolume}}</p>
+        </view>
+        <view class="weui-media-box__desc">
+          <p style="margin-left:30px">起送:{{shop.shopStartPrice}}￥</p>
+          <p style="margin-left:10px"> 配送:{{shop.shopSendPrice}}￥</p>
+        </view>
+      </view>
+    </a>
+  </view>
 
 </view>

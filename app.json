@@ -5,7 +5,8 @@
     "pages/Login/Login",
     "pages/logs/logs",
     "pages/order/order",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/search/search"
   ],
   "tabBar": {
     "color": "#454545",
@@ -35,7 +36,9 @@
     ]
   },
   "window":{
-    "backgroundTextStyle":"light",
+    "onReachBottomDistance": 50,
+    "enablePullDownRefresh":true, 
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#409EFF",
     "navigationBarTitleText": "饿了吗",
     "navigationBarTextStyle":"white"
