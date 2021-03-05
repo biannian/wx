@@ -17,8 +17,7 @@
 				</view>
 			</form>
             <view style="color:white" bindtap="search">搜索</view>
-		</view>
-	
+		</view> 
 	</view>
 
 
