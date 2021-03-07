@@ -15,7 +15,7 @@
 
    <view class="weui-grids" style="margin-top:10px">
     <a class="weui-grid" wx:key="id" wx:for="4" style="padding: 10rpx;width:25%">
-      <navigator url="/pages/shops/shops">
+      <navigator url="/pages/commodity/commodity">
       <view>
         <image class="img" src="/images/food.jpg">
         </image>
@@ -92,12 +92,12 @@
       <view class="weui-media-box__bd">
         <h4 style="font-size:20px;margin-left:30px">{{shop.shopName}}</h4>
         <view class="weui-media-box__desc">
-          <p style="font-size:16px;color:red;margin-left:30px">{{shop.shopScore}}分</p>
-          <p style="margin-left:20px">销量:{{shop.shopSalesVolume}}</p>
+          <text style="font-size:16px;color:red;margin-left:30px">{{shop.shopScore}}分</text>
+          <text style="margin-left:20px">销量:{{shop.shopSalesVolume}}</text>
         </view>
         <view class="weui-media-box__desc">
-          <p style="margin-left:30px">起送:{{shop.shopStartPrice}}￥</p>
-          <p style="margin-left:10px"> 配送:{{shop.shopSendPrice}}￥</p>
+          <text style="margin-left:30px">起送:{{shop.shopStartPrice}}￥</text>
+          <text style="margin-left:10px"> 配送:{{shop.shopSendPrice}}￥</text>
         </view>
       </view>
     </a>
