@@ -1,5 +1,7 @@
 {
-  "usingComponents": {
- 
-  }
+  "usingComponents": { 
+    "orderFood":"../commoditys/orderFood/orderFood",
+    "comment":"../commoditys/comment/comment",
+    "shopInfo":"../commoditys/shopInfo/shopInfo"
+  } 
 }

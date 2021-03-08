@@ -36,9 +36,8 @@
       }
     ]
   },
-  "window":{
-    "onReachBottomDistance": 50,
-    "enablePullDownRefresh":true, 
+  "window":{ 
+    "onReachBottomDistance": 50, 
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#409EFF",
     "navigationBarTitleText": "饿了吗",

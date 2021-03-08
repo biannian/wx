@@ -1,37 +1,32 @@
-<view>
-  <image style="width:100%;height:100px" src="/images/ashuiLong.png"></image>
-  <view style="border-radius: 8rpx;margin:40rpx;background-color:white;margin-top:-15%;z-index:1; position: sticky;border:1px solid #DCDFE6 ">
-    <view style="float:left;width:70%;margin-left:10rpx">
-<text style="font-size:40rpx;margin-top:10rpx;color:#303133">阿水大杯茶</text> 
-<text>\n</text>
-<text style="font-size:25rpx;color:#303133"> 约30分钟 月售:1000</text>
-<text>\n</text>
-<text style="font-size:25rpx;color:#909399">嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻</text>
-</view> 
-  <view >
-    <image style="width:150rpx;height:150rpx;margin-top:10rpx" src="/images/ashuiLong.png"></image>
-  </view>
-</view> 
-<view class="page" data-weui-theme="{{theme}}">
-	<view class="page__bd" style="height: 100%;">
-		<view class="weui-tab">
-			<view class="weui-navbar">
-				<view class="weui-navbar__item weui-bar__item_on">
-点餐
-				</view>
-				<view class="weui-navbar__item">
-评价
-				</view>
-				<view class="weui-navbar__item">
-商家
-				</view>
-			</view>
-			<view class="weui-tab__panel">
   
-			</view>
+	<image style="width:100%;height:100px" src="/images/ashuiLong.png"></image> 
+	<view
+		style="border-radius: 15rpx;margin:40rpx;background-color:white;margin-top:-15%;z-index:1; position: sticky;border:1px solid #DCDFE6 ">
+		<view style="float:left;width:70%;margin-left:10rpx">
+			<text style="font-size:40rpx;margin-top:10rpx;color:#303133">阿水大杯茶</text>
+			<text>\n</text>
+			<text style="font-size:25rpx;color:#303133"> 约30分钟 月售:1000</text>
+			<text>\n</text>
+			<text style="font-size:25rpx;color:#909399">嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻</text>
+		</view>
+		<view>
+			<image style="width:150rpx;height:150rpx;margin-top:10rpx" src="/images/ashuiLong.png"></image>
 		</view>
 	</view>
-</view>
-
-
-</view>
+ <view style="margin-top:-5%;" class="weui-navbar">
+		<block wx:for="{{tabs}}" wx:key="*this">
+			<view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}"
+				bindtap="tabClick">
+				<view class="weui-navbar__title">{{item}}</view>
+			</view>
+		</block> 
+	</view>
+	<view hidden="{{activeIndex != 0 }}">
+						<orderFood></orderFood>
+						</view>
+					<view hidden="{{activeIndex != 1 }}">
+					 <comment></comment>
+					</view>
+					<view hidden="{{activeIndex != 2 }}">
+						 <shopInfo></shopInfo>
+					</view>
