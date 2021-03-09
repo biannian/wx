@@ -1,5 +1,4 @@
-// 获取应用实例
-const app = getApp()
+  
  const $api = require('../../api/api').API;
 Page({ 
     onShareAppMessage() {
@@ -9,6 +8,8 @@ Page({
         }
       },
   data: { 
+    images:[ 
+   "/images/background.jpg","/images/background1.jpg","/images/background2.jpg" ],
     shops:"",
     inputShowed: false,
     inputVal: ""

@@ -1,5 +1,0 @@
-.left{ 
-  width: 25%; 
-  background-color: #f6f6f6;
-  overflow-y: scroll;
-}

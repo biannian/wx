@@ -1,16 +1,16 @@
   
-	<image style="width:100%;height:100px" src="/images/ashuiLong.png"></image> 
+	<image style="width:100%;height:150px" src="/images/background.jpg"></image> 
 	<view
 		style="border-radius: 15rpx;margin:40rpx;background-color:white;margin-top:-15%;z-index:1; position: sticky;border:1px solid #DCDFE6 ">
 		<view style="float:left;width:70%;margin-left:10rpx">
-			<text style="font-size:40rpx;margin-top:10rpx;color:#303133">阿水大杯茶</text>
+			<text style="font-size:40rpx;margin-top:10rpx;color:#303133;margin-left:5%">{{shop.shop.shopName}}</text>
 			<text>\n</text>
-			<text style="font-size:25rpx;color:#303133"> 约30分钟 月售:1000</text>
+			<text style="font-size:25rpx;color:#303133;margin-left:5%"> 约30分钟 月售:{{shop.shop.shopSalesVolume}} 起送:{{shop.shop.shopStartPrice}} 运费:{{shop.shop.shopSendPrice}}</text>
 			<text>\n</text>
-			<text style="font-size:25rpx;color:#909399">嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻</text>
+			<text style="font-size:25rpx;color:#909399;margin-left:5%">{{shop.shop.shopInfo}}</text>
 		</view>
 		<view>
-			<image style="width:150rpx;height:150rpx;margin-top:10rpx" src="/images/ashuiLong.png"></image>
+			<image style="width:150rpx;height:150rpx;margin-top:10rpx" src="{{shop.shop.shopImg}}"></image>
 		</view>
 	</view>
  <view style="margin-top:-5%;" class="weui-navbar">
@@ -22,7 +22,7 @@
 		</block> 
 	</view>
 	<view hidden="{{activeIndex != 0 }}">
-						<orderFood></orderFood>
+						<orderFood shop="{{shop}}"></orderFood>
 						</view>
 					<view hidden="{{activeIndex != 1 }}">
 					 <comment></comment>

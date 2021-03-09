@@ -1,2 +1,2 @@
 @import 'weui.wxss';
-
+@import "components/commoditys/orderFood/orderFood.wxss";

@@ -1,0 +1,35 @@
+.left{ 
+  width: 20%; 
+  background-color: #f6f6f6;
+  overflow-y: scroll;
+}
+.tap{
+  padding: 8%;
+  font-size:15px;
+  font-style: normal;
+  margin-left: 15%;
+}
+.tapon { 
+  margin-left: 5%;
+  padding: 8%;
+  background-color: white;
+}
+.placeholder{
+  margin: 7px;
+  padding: 0 15px;
+  text-align: center;
+  background-color: var(--weui-BG-1);
+  height: 2.3em;
+  line-height: 2.3em;
+  color: var(--weui-FG-1);
+}
+.placeholderon{
+ 
+  padding:10px;
+  text-align: center;
+  background-color:white;
+  height: 2.3em;
+  line-height: 2.3em;
+}
+
+ 
