@@ -31,5 +31,27 @@
   height: 2.3em;
   line-height: 2.3em;
 }
+.buy{
+  position: fixed;
+  bottom: 3%;
+  right: 5%; 
+  padding:5px;
+  border-radius:40rpx;
+  background-color:#409EFF;
+  width:200rpx;
+  font-size:20px;
+  text-align: center;
+  color: white;
+}
+.shopping{
+  position: fixed;
+  bottom:0rpx;
+  opacity:0.9; 
+  background-color:#EBEEF5;
+  height: 10%;
+  width: 100%;
+}
+
+
 
  

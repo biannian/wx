@@ -1,33 +1,41 @@
 <view>
-	<!-- <view class="left" wx:for="{{shop.shopMenu}}" wx:key="index">
-		<view id="{{index}}" class="tap{{activeIndex == index ? 'on' : ''}}" bindtap="menuTap">
-			<text>{{shop.shopMenu[index]}}</text>
-		</view>
-
-	</view> -->
-
-
 	<view class="page__bd page__bd_spacing">
 		<view class="weui-flex">
 			<view>
-				<view style="background-color: #f6f6f6;overflow-y: scroll;" wx:for="{{shop.shopMenu}}" wx:key="index">
+				<view style="background-color: #f6f6f6;overflow-y:scroll;" wx:for="{{shop.shopMenu}}" wx:key="index">
 					<view class="placeholder{{activeIndex == index ? 'on' : ''}}" id="{{index}}" bindtap="menuTap">
 						<text>{{shop.shopMenu[index]}}</text>
 					</view>
 				</view>
 			</view>
 			<view class="weui-flex__item">
-				<scroll-view style="flex:1; background-color: #fff;overflow-y: scroll;">
-					<view wx:for="{{shop.shopMenu}}" wx:key="index">
-						<view> 
-							<text>{{shop.shopMenu[index]}}</text>
-						<view>
-							<text>{{shop.shop.commodity[0].commodityId}}</text>
-						</view> 
-						</view> 
+				<scroll-view style="flex:1;background-color: #fff;overflow-y:scroll;" scroll-y scroll-with-animation="true" scroll-into-view="{{selectId}}" bindscroll="scrollEvent" scroll-top="{{scrollTop}}">
+					<view wx:for="{{shop.shopMenu}}" wx:key="index" wx:for-item="shopMenu">
+						<view  id='{{"shopMenu"+index}}' style="font-size:18px">{{shopMenu}}</view >
+						<view style="margin-left:-5%;" wx:for="{{shop.commodity[index]}}" class="weui-panel__bd" wx:for-item="commodity" wx:key="in">
+							<a class="weui-media-box weui-media-box_appmsg">
+								<view style="margin-top:-7%;" class="weui-media-box__hd">
+									<image style="height:80px;width:80px;border-radius:10rpx;" src="{{commodity.commodityImg}}"></image>
+								</view>
+								<view style="margin-left:7%" class="weui-media-box__bd">
+									<text style="font-size:20px;">{{commodity.commodityName}}</text>
+									<view style="margin-top:3%">
+										<text style="font-size:15px;color:red">￥{{commodity.commodityPrice}} </text>
+										<text> 库存:{{commodity.commodityNumber}}</text>
+									</view>
+								</view>
+							</a>
+						</view>
 					</view>
 				</scroll-view>
 			</view>
 		</view>
 	</view>
+<view>
+	<view class="shopping">
+123
+</view> 
+<view class="buy">结算</view>
+</view>
+
 </view>

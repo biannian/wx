@@ -11,6 +11,7 @@ Page({
   queryById(shopId) {
     $api.queryById(shopId)
     .then((res)=>{
+      console.log(res);
       this.setData({
        shop:res.data.result
       });
