@@ -45,6 +45,23 @@ function request(method, url, data) {
                                 }
                             })
                             break;
+                            case 402:
+                                wx.showModal({
+                                    title: '提示',
+                                    content: '登录过期，请重新登陆',
+                                    success(res) {
+                                        if (res.confirm) {
+                                            wx.redirectTo({
+                                                url: '/pages/Login/Login'
+                                            })
+                                        } else if (res.cancel) {
+                                            wx.navigateBack({
+                                                delta: 1
+                                            })
+                                        }
+                                    }
+                                })
+                                break;
                     }
                 }
             },

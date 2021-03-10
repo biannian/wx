@@ -1,5 +1,6 @@
  Component({
    data: {
+     totalMoney: 0,
      shops: [],
      dialog: false,
      activeIndex: '',
@@ -22,6 +23,7 @@
        var commodity = this.data.shop.shop.commodity;
        var commoditys = this.data.shop.commodity;
        var shops = this.data.shops;
+       var totalMoney = this.data.totalMoney;
        commodity.forEach(element => {
          if (element.commodityId == commodityID) {
            commoditys[element.commodityMenuId].forEach(ele => {
@@ -32,24 +34,28 @@
                    icon: 'none',
                    duration: 1500
                  })
-               } else { 
+               } else {
                  ele.shoppingNumber += 1;
-                 if(shops.indexOf(ele) == -1){
-                  shops.push(ele);
+                 if (shops.indexOf(ele) == -1) {
+                   shops.push(ele);
                  }
+                 totalMoney += ele.commodityPrice;
                }
              }
            });
          }
        });
-       var shop = this.data.shop; 
+       var shop = this.data.shop;
        shop.commodity = commoditys;
+
        this.setData({
+         totalMoney: totalMoney,
          shops: shops,
          shop: shop,
        });
      },
      deleteShopping(e) {
+       var totalMoney = this.data.totalMoney;
        var commodityID = e.currentTarget.id;
        var commodity = this.data.shop.shop.commodity;
        var commoditys = this.data.shop.commodity;
@@ -57,15 +63,16 @@
        commodity.forEach(element => {
          if (element.commodityId == commodityID) {
            commoditys[element.commodityMenuId].forEach(ele => {
-             if (ele.commodityId == commodityID) { 
-                 ele.shoppingNumber -= 1;
-                 if (0 >= ele.shoppingNumber) {
-                   for (let i = 0; i < shops.length; i++) {
-                      if(shops[i].commodityId == ele.commodityId){
-                         shops.splice(i,1);
-                      } 
+             if (ele.commodityId == commodityID) {
+               totalMoney -= ele.commodityPrice;
+               ele.shoppingNumber -= 1;
+               if (0 >= ele.shoppingNumber) {
+                 for (let i = 0; i < shops.length; i++) {
+                   if (shops[i].commodityId == ele.commodityId) {
+                     shops.splice(i, 1);
                    }
-                } 
+                 }
+               }
              }
            });
          }
@@ -73,7 +80,8 @@
        var shop = this.data.shop;
        shop.commodity = commoditys;
        this.setData({
-         shops:shops,
+         totalMoney: totalMoney,
+         shops: shops,
          shop: shop,
        });
      },
@@ -97,8 +105,26 @@
          dialog: !this.data.dialog
        });
      },
-     toBuy(){
-     
+     toBuy() {
+       if (this.data.shops.length == '0') {
+         wx.showToast({
+           title: '您还未添加商品',
+           icon: 'error',
+           duration: 1500
+         })
+         return;
+       }
+       if(this.data.totalMoney < this.data.shop.shop.shopStartPrice){
+        wx.showToast({
+          title: "￥"+this.data.shop.shop.shopStartPrice+"起送",
+          icon: 'none',
+          duration: 1500
+        })
+        return;
+       }
+       wx.navigateTo({
+         url: '/pages/buy/buy'
+       })
      },
    }
 
