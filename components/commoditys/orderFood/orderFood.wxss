@@ -23,10 +23,8 @@
   line-height: 2.3em;
   color: var(--weui-FG-1);
 }
-.placeholderon{
- 
-  padding:10px;
-  text-align: center;
+.placeholderon{ 
+  padding:10px; 
   background-color:white;
   height: 2.3em;
   line-height: 2.3em;
@@ -42,13 +40,16 @@
   font-size:20px;
   text-align: center;
   color: white;
+  z-index: 4;
 }
 .shopping{
+  z-index: 3;
   position: fixed;
   bottom:0rpx;
-  opacity:0.9; 
+  opacity:0.95; 
   background-color:#EBEEF5;
   height: 10%;
+
   width: 100%;
 }
 

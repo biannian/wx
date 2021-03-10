@@ -7,7 +7,11 @@
     "pages/order/order",
     "pages/my/my",
     "pages/search/search",
-    "pages/shops/shops"
+    "pages/shops/shops",
+    "pages/buy/buy",
+    "components/commoditys/orderFood/orderFood",
+    "components/commoditys/comment/comment",
+    "components/commoditys/shopInfo/shopInfo" 
   ],
   "tabBar": {
     "color": "#454545",

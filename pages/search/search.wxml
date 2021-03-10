@@ -41,6 +41,7 @@
   <p style="margin-left:20px" bindtap="sort" data-property="shopSalesVolume" >销量排序</p>
   <p style="margin-left:20px" bindtap="sort" data-property="shopScore" >评分排序</p>
 </view>
+
 <view style="margin-top:10px" class="weui-panel__bd" wx:for="{{shops}}" wx:key="index" wx:for-item="shop">
   <navigator url="/pages/commodity/commodity?shopId={{shop.shopId}}">
   <a class="weui-media-box weui-media-box_appmsg">

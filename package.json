@@ -1,0 +1,22 @@
+{
+  "name": "wx",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biannian/wx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/biannian/wx/issues"
+  },
+  "homepage": "https://github.com/biannian/wx#readme",
+  "description": "",
+  "dependencies": {
+    "weui-miniprogram": "^1.0.7"
+  }
+}

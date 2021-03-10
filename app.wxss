@@ -1,2 +1,3 @@
 @import 'weui.wxss';
 @import "components/commoditys/orderFood/orderFood.wxss";
+@import '/miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';

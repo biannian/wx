@@ -1,0 +1,9 @@
+.LoginInput{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 30%;
+}
+/* .itemView{
+  width: 70%;
+  margin-right: 5%;
+} */

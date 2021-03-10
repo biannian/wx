@@ -1,7 +1,7 @@
 {
-  "usingComponents": { 
-    "orderFood":"/components/commoditys/orderFood/orderFood",
-    "comment":"/components/commoditys/comment/comment",
-    "shopInfo":"/components/commoditys/shopInfo/shopInfo"
+  "usingComponents": {  
+    "orderFood":"../../components/commoditys/orderFood/orderFood", 
+    "comment":"../../components/commoditys/comment/comment", 
+    "shopInfo":"../../components/commoditys/shopInfo/shopInfo"
   } 
 }
