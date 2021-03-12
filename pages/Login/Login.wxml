@@ -1,4 +1,3 @@
-<view class="container">
  
   <view class="weui-form" >
     <view class="weui-form__text-area">
@@ -10,13 +9,13 @@
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__hd"><label class="weui-label">账户名</label></view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请输入账户名" placeholder-class="weui-input__placeholder" />
+              <input value="{{accountName}}" type="text" bindinput="loadAccount" class="weui-input" placeholder="请输入账户名" placeholder-class="weui-input__placeholder" />
             </view> 
           </view>
           <view class="weui-cell weui-cell_active weui-cell_vcode">
             <view class="weui-cell__hd"><label class="weui-label">密码</label></view>
             <view class="weui-cell__bd">
-              <input class="weui-input" type="{{passwordType}}" placeholder="输入密码" placeholder-class="weui-input__placeholder" /> 
+              <input value="{{accountPassword}}" class="weui-input" type="{{passwordType}}" placeholder="输入密码" bindinput="loadPassword" placeholder-class="weui-input__placeholder" /> 
             </view>
             <view class="weui-cell__ft">
 							<a class="weui-btn_reset weui-btn_icon">
@@ -28,11 +27,10 @@
       </view>
     </view>
 
-    <view class="weui-form__opr-area" wx:if="{{!hasUserInfo}}">
-      <a class="weui-btn weui-btn_primary">登录</a>
+    <view class="weui-form__opr-area" >
+      <button bindtap="login"  type="submit" wx:if="{{!hasUserInfo}}"  class="weui-btn weui-btn_primary">登录</button>
     </view>
-  </view>
-
+  </view> 
 
 
   <view class="userinfo">
@@ -41,9 +39,8 @@
       <button bindtap="getUserProfile"> 使用微信登陆 </button>
     </block>
     <block wx:else>
-      <image bindtap="login" class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+      <image bindtap="wxLogin" class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-
-</view>
+ 

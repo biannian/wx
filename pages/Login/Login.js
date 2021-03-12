@@ -1,6 +1,8 @@
 const $api = require('../../api/api').API;
 Page({
   data: {
+    accountName: '',
+    accountPassword: '',
     passwordIcon: "eyes-off",
     passwordType: "password",
     userInfo: {},
@@ -12,7 +14,64 @@ Page({
     canIUseOpenData: false // 如需尝试获取用户信息可改为false
   },
   // 事件处理函数
+  loadAccount(e) {
+    this.setData({
+      accountName: e.detail.value
+    })
+  },
+  loadPassword(e) {
+    this.setData({
+      accountPassword: e.detail.value
+    })
+  },
   login() {
+    console.log(this.data);
+    var accountName = this.data.accountName;
+    var accountPassword = this.data.accountPassword;
+    if (accountName == "") {
+      wx.showToast({
+        title: '请输入账户名',
+        icon: "none",
+      })
+
+      return;
+    }
+    if (accountPassword == "") {
+      wx.showToast({
+        title: '请输入密码',
+        icon: "none",
+      })
+      return;
+    }
+    let params = {
+      accountPassword: accountPassword,
+      accountName: accountName
+    } 
+    $api.login(params)
+      .then((res) => {
+        if(res.data.code == 200){
+          wx.showToast({
+            title: '登录成功',
+            icon:"none",
+          }) 
+          var token = res.data.result;
+          wx.setStorage({
+            key: "token",
+            data: token
+          })
+          wx.navigateBack({
+            delta: 1
+        })
+        }else{
+          //登录失败
+          wx.showToast({
+            title: '账户或密码错误',
+            icon:"none",
+          })
+        }
+      })
+  },
+  wxLogin() {
     var that = this;
     wx.login({
       success(res) {
@@ -20,8 +79,8 @@ Page({
         if (res.code) {
           //发起网络请求
           let params = {
-            wxName:that.data.userInfo.nickName,
-            wxImage:that.data.userInfo.avatarUrl,
+            wxName: that.data.userInfo.nickName,
+            wxImage: that.data.userInfo.avatarUrl,
             code: res.code,
             encryptedData: that.data.encryptedData,
             iv: that.data.iv,
@@ -29,24 +88,24 @@ Page({
           $api.wxLogin(params)
             .then((resp) => {
               console.log(resp);
-             if(resp.data.result){ 
-                if("" == resp.data.result.token ){
+              if (resp.data.result) {
+                if ("" == resp.data.result.token) {
                   wx.redirectTo({
-                    url: '/pages/account/account?openId='+resp.data.result.openId,
-                  }) 
-                }else{ 
+                    url: '/pages/account/account?openId=' + resp.data.result.openId,
+                  })
+                } else {
                   var token = resp.data.result.token;
                   wx.setStorage({
-                    key:"token",
-                    data:token
+                    key: "token",
+                    data: token
                   })
                   wx.navigateBack({
                     delta: 1
-                })
+                  })
                 }
-             }else{
-              console.log('登录服务器失败');
-             }
+              } else {
+                console.log('登录服务器失败');
+              }
             })
         } else {
           console.log('登录失败！' + res.errMsg)

@@ -63,6 +63,10 @@
   position: sticky;
   align-items: center;
 }
+.menus{
+  top: 0;
+  position: fixed;
+}
 .button{
   float: inline-end;
   margin-inline: 5%;

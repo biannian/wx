@@ -9,7 +9,7 @@ const API = {
     checkAccount:(data) =>request('GET','/Login/queryById.do?accountName='+data),
     register:(data) =>request('POST','/Login/register.do',data),
     updateAddress:(data) =>request('POST','/Buyer/updateAddress.do',data),
-
+    login:(data) => request('GET',`/Login/login.do`,data),
 
 };
 module.exports = {

@@ -89,6 +89,14 @@
        this.setData({
          activeIndex: e.currentTarget.id
        });
+      //  wx.pageScrollTo({
+      //   scrollTop: 500,
+      //   duration: 300
+      // })
+      
+     },
+     aa(){
+       console.log(123);
      },
      close: function () {
        this.setData({
