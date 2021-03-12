@@ -9,7 +9,7 @@ Page({
       },
   data: { 
     images:[ 
-   "/images/background.jpg","/images/background1.jpg","/images/background2.jpg" ],
+   "/pages/resources/picture/background.jpg","/pages/resources/picture/background1.jpg","/pages/resources/picture/background2.jpg" ],
     shops:"",
     inputShowed: false,
     inputVal: ""

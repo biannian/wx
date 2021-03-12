@@ -123,7 +123,7 @@
         return;
        }
        wx.navigateTo({
-         url: '/pages/buy/buy'
+         url: '/pages/makeOrder/makeOrder'
        })
      },
    }

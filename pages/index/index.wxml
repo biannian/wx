@@ -16,7 +16,7 @@
     <a class="weui-grid" wx:key="id" wx:for="4" style="padding: 10rpx;width:25%">
       <navigator url="/pages/commodity/commodity">
       <view>
-        <image class="img" src="/images/food.jpg">
+        <image class="img" src="/pages/resources/picture/food.jpg">
         </image>
       </view>
       <view class="weui-grid__label">美食</view>
@@ -24,7 +24,7 @@
     </a>
     <a class="weui-grid" style="padding:10rpx;width:25%">
       <view>
-        <image  class="img" src="/images/naicha.jpg">
+        <image  class="img" src="/pages/resources/picture/naicha.jpg">
         </image>
         <!-- <image style="width:100%;height:100%" src="/images/naicha.jpg" alt></image> -->
       </view>
@@ -32,7 +32,7 @@
     </a>
     <a class="weui-grid" style="padding: 10rpx;width:25%">
       <view>
-        <image  class="img" src="/images/dagao.jpg">
+        <image  class="img" src="/pages/resources/picture/dagao.jpg">
         </image>
         <!-- <image style="width:100%;height:100%" src="/images/dagao.jpg" alt></image> -->
       </view>
@@ -40,30 +40,30 @@
     </a>
     <a class="weui-grid" style="padding: 10rpx;width:25%">
       <view>
-        <image  class="img" src="/images/shuiguo.jpg">
+        <image  class="img" src="/pages/resources/picture/shuiguo.jpg">
         </image>
         <!-- <image style="width:100%;height:100%" src="/images/shuiguo.jpg"></image> -->
       </view>
       <view class="weui-grid__label">水果</view>
     </a>
     <a class="weui-grid" style="padding: 10rpx;width:25%">
-      <image class="img" src="/images/shuiguo.jpg">
+      <image class="img" src="/pages/resources/picture/shuiguo.jpg">
       </image>
       <view class="weui-grid__label">水果</view>
     </a>
     <a class="weui-grid" style="padding: 10rpx;width:25%">
-      <image  class="img" src="/images/shuiguo.jpg">
+      <image  class="img" src="/pages/resources/picture/shuiguo.jpg">
       </image>
       <view class="weui-grid__label">水果</view>
     </a>
     <a class="weui-grid" style="padding: 10rpx;width:25%">
-      <image  class="img" src="/images/shuiguo.jpg">
+      <image  class="img" src="/pages/resources/picture/shuiguo.jpg">
       </image>
       <view class="weui-grid__label">水果</view>
     </a>
     <a class="weui-grid" style="padding: 10rpx; width:25%">
       <view>
-        <image  class="img" src="/images/shuiguo.jpg">
+        <image  class="img" src="/pages/resources/picture/shuiguo.jpg">
         </image>
         <!-- <image src="/images/shuiguo.jpg" alt></image> -->
       </view>

@@ -1,4 +1,5 @@
 <view>my
   <navigator url="/pages/Login/Login" hover-class="navigator-hover">登录</navigator>
+  <navigator url="/pages/account/account" hover-class="navigator-hover">登录</navigator>
 </view>
 

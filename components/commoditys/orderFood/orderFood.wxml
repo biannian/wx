@@ -12,46 +12,44 @@
 				<scroll-view style="flex:1;background-color: #fff;overflow-y:scroll;" scroll-y scroll-with-animation="true"
 					scroll-into-view="{{selectId}}" bindscroll="scrollEvent" scroll-top="{{scrollTop}}">
 					<view wx:for="{{shop.shopMenu}}" wx:key="index" wx:for-item="shopMenu">
-						<view id='{{"shopMenu"+index}}' style="font-size:18px">{{shopMenu}}</view>
-						<view style="margin-left:-5%;" wx:for="{{shop.commodity[index]}}" class="weui-panel__bd"
+						<view id='{{"shopMenu"+index}}' class="menu">{{shopMenu}}</view>
+						<view style="margin-left:-5%;" wx:for="{{shop.commodity[index]}}" 
 							wx:for-item="commodity" wx:key="in">
 							<a class="weui-media-box weui-media-box_appmsg">
-								<view style="margin-top:-7%;" class="weui-media-box__hd">
+								<view style="height:80px;width:80px" class="weui-media-box__hd">
 									<image style="height:80px;width:80px;border-radius:10rpx;" src="{{commodity.commodityImg}}"></image>
 								</view>
-								<view style="margin-left:7%" class="weui-media-box__bd">
-									<text style="font-size:20px;">{{commodity.commodityName}}</text>
-									<view style="margin-top:3%;width:40%">
+								<view class="weui-media-box__bd">
+									<view style="font-size:20px;">{{commodity.commodityName}}</view>
+									<span  >
 										<text style="font-size:15px;color:red">￥{{commodity.commodityPrice}} </text>
 										<text style="font-size:13px;"> 库存:{{commodity.commodityNumber}}</text>
-									</view>
-									<view style="width:50%;  float: inline-end;margin-top:-20%">
-										<view wx:if="{{commodity.shoppingNumber != '0'}}">
+									</span>
+									<span class="button"> 
+										
+										<span wx:if="{{commodity.shoppingNumber != '0'}}">
+										
 											<mp-icon id="{{commodity.commodityId}}" icon="close2" color="#409EFF" bindtap="deleteShopping"
-												size="{{25}}"></mp-icon>
-											{{commodity.shoppingNumber}}
-										</view>
-										<view>
-											<mp-icon id="{{commodity.commodityId}}" icon="add2" bindtap="addShopping" color="#409EFF"
+												size="{{25}}"></mp-icon> 
+												{{commodity.shoppingNumber}}
+										</span> 
+										<mp-icon id="{{commodity.commodityId}}" icon="add2" bindtap="addShopping" color="#409EFF"
 												size="{{25}}">
-											</mp-icon>
-										</view>
-									</view>
+											</mp-icon> 
+									</span>
 								</view>
 							</a>
 						</view>
 					</view>
-				</scroll-view>
-				<text>\n</text>
+				</scroll-view> 
 				<text>\n</text>
 				<text>\n</text>
 			</view>
 		</view>
 	</view>
 	<view>
-		<view class="fadeIn" wx:if="{{dialog}}">
-
-			<view style="bottom:10%;background-color:#F2F6FC;opacity:0.95; " class="weui-half-screen-dialog">
+		<view  class="fadeIn" wx:if="{{dialog}}"> 
+			<view style="bottom:10%;background-color:#F2F6FC;opacity:0.95;overflow-y:scroll; " class="weui-half-screen-dialog">
 				<view class="weui-half-screen-dialog__hd">
 					<view class="weui-half-screen-dialog__hd__side" bindtap="close">
 						<a class="weui-icon-btn">关闭<i class="weui-icon-close-thin"></i></a>
@@ -60,44 +58,46 @@
 						<strong class="weui-half-screen-dialog__title">已选商品</strong>
 					</view>
 				</view>
-				<view class="weui-half-screen-dialog__bd">
-					<view style="margin-left:-5%;" wx:for="{{shops}}" class="weui-panel__bd" wx:for-item="commodity" wx:key="in">
+				<view class="weui-half-screen-dialog__bd" >
+					<view wx:for="{{shops}}" class="weui-panel__bd" wx:for-item="commodity" wx:key="in">
 						<a class="weui-media-box weui-media-box_appmsg">
-							<view style="margin-top:-7%;" class="weui-media-box__hd">
-								<image style="height:80px;width:80px;border-radius:10rpx;" src="{{commodity.commodityImg}}"></image>
-							</view>
-							<view style="margin-left:7%" class="weui-media-box__bd">
-								<text style="font-size:20px;">{{commodity.commodityName}}</text>
-								<view style="margin-top:3%;width:40%">
-									<text style="font-size:15px;color:red">￥{{commodity.commodityPrice}} </text>
+								<view class="weui-media-box__hd">
+									<image style="height:60px;width:60px;border-radius:10rpx;" src="{{commodity.commodityImg}}"></image>
 								</view>
-								<view style="width:50%;  float: inline-end;margin-top:-20%">
-									<view wx:if="{{commodity.shoppingNumber != '0'}}">
-										<mp-icon id="{{commodity.commodityId}}" icon="close2" color="#409EFF" bindtap="deleteShopping"
-											size="{{25}}"></mp-icon>
-										{{commodity.shoppingNumber}}
-									</view>
-									<mp-icon id="{{commodity.commodityId}}" icon="add2" bindtap="addShopping" color="#409EFF"
-										size="{{25}}">
-									</mp-icon>
+								<view class="weui-media-box__bd">
+									<view style="font-size:20px;">{{commodity.commodityName}}</view>
+									<span  >
+										<text style="font-size:15px;color:red">￥{{commodity.commodityPrice}} </text>
+										<text style="font-size:13px;"> 库存:{{commodity.commodityNumber}}</text>
+									</span>
+									<span class="button">  
+										<span wx:if="{{commodity.shoppingNumber != '0'}}"> 
+											<mp-icon id="{{commodity.commodityId}}" icon="close2" color="#409EFF" bindtap="deleteShopping"
+												size="{{25}}"></mp-icon> 
+												{{commodity.shoppingNumber}}
+										</span> 
+										<mp-icon id="{{commodity.commodityId}}" icon="add2" bindtap="addShopping" color="#409EFF"
+												size="{{25}}">
+											</mp-icon> 
+									</span>
 								</view>
-							</view>
-						</a>
+							</a> 
 					</view>
 				</view>
 			</view>
 		</view>
 		<view class="shopping" bindtap="open">
-			<image style="width:45px;height:45px;margin-left:7%;margin-top:2%;border-radius:20rpx;" src="/images/shop.jpg">
+			<image style="width:45px;height:45px;margin-left:7%;margin-top:2%;border-radius:20rpx;"
+				src="/pages/resources/picture/shop.jpg">
 			</image>
 			<view style="margin-left:23%;margin-top:-15%">
 				<text style="color:red">￥</text> <text>{{totalMoney}}</text>
 				<text>\n</text>
-				<text  style="font-size:25rpx;color:#909399;">另需配送费￥{{shop.shop.shopSendPrice}}</text>
+				<text style="font-size:25rpx;color:#909399;">另需配送费￥{{shop.shop.shopSendPrice}}</text>
 			</view>
 
-		</view>  
-			<view bindtap="toBuy" class="buy">结算</view> 
+		</view>
+		<view bindtap="toBuy" class="buy">结算</view>
 	</view>
 
 </view>

@@ -1,0 +1,6 @@
+<view>
+<view wx:if="{{buyerAddress != null}}" bindtap="getAddress"> 选择收货地址</view>
+<view wx:for="{{buyerAddress}}">
+  {{buyerAddress.buyerAccountName}}
+</view>
+</view>

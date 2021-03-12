@@ -1,20 +1,23 @@
-.left{ 
-  width: 20%; 
+.left {
+  width: 20%;
   background-color: #f6f6f6;
   overflow-y: scroll;
 }
-.tap{
+
+.tap {
   padding: 8%;
-  font-size:15px;
+  font-size: 15px;
   font-style: normal;
   margin-left: 15%;
 }
-.tapon { 
+
+.tapon {
   margin-left: 5%;
   padding: 8%;
   background-color: white;
 }
-.placeholder{
+
+.placeholder {
   margin: 7px;
   padding: 0 15px;
   text-align: center;
@@ -23,36 +26,44 @@
   line-height: 2.3em;
   color: var(--weui-FG-1);
 }
-.placeholderon{ 
-  padding:10px; 
-  background-color:white;
+
+.placeholderon {
+  padding: 10px;
+  background-color: white;
   height: 2.3em;
   line-height: 2.3em;
 }
-.buy{
+
+.buy {
   position: fixed;
   bottom: 3%;
-  right: 5%; 
-  padding:5px;
-  border-radius:40rpx;
-  background-color:#409EFF;
-  width:200rpx;
-  font-size:20px;
+  right: 5%;
+  padding: 5px;
+  border-radius: 40rpx;
+  background-color: #409EFF;
+  width: 200rpx;
+  font-size: 20px;
   text-align: center;
   color: white;
   z-index: 4;
 }
-.shopping{
+
+.shopping {
   z-index: 3;
   position: fixed;
-  bottom:0rpx;
-  opacity:0.95; 
-  background-color:#EBEEF5;
-  height: 10%;
-
+  bottom: 0rpx;
+  opacity: 0.95;
+  background-color: #EBEEF5;
+  height: 10%; 
   width: 100%;
 }
 
-
-
- 
+.menu { 
+  font-size: 18px;
+  position: sticky;
+  align-items: center;
+}
+.button{
+  float: inline-end;
+  margin-inline: 5%;
+}

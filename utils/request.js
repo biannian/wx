@@ -1,13 +1,20 @@
 const GET = 'GET';
 const POST = 'POST';
 
-
+ 
 const baseURL = 'http://localhost:8087';
-
+var token;
 function request(method, url, data) {
     return new Promise(function (resolve, reject) {
+       
+        wx.getStorage({
+            key: 'token',
+            success (res) {
+                token = res.data
+            }
+          })
         let header = {
-            'token': '123',
+            'token':token,
             'content-type': 'application/json',
         };
         wx.request({
@@ -17,7 +24,7 @@ function request(method, url, data) {
             header: header,
             success(res) {
                 //请求成功 
-                if (res.data.code == 200) {
+                if (res.statusCode == 200) {
                     resolve(res);
                 } else {
                     switch (res.statusCode) {

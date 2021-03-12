@@ -1,5 +1,5 @@
   
-	<image style="width:100%;height:150px" src="/images/background.jpg"></image> 
+	<image style="width:100%;height:150px" src="/pages/resources/picture/background.jpg"></image> 
 	<view
 		style="border-radius: 15rpx;margin:40rpx;background-color:white;margin-top:-15%;z-index:1; position: sticky;border:1px solid #DCDFE6 ">
 		<view style="float:left;width:70%;margin-left:10rpx">
