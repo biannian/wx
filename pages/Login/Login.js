@@ -24,8 +24,7 @@ Page({
       accountPassword: e.detail.value
     })
   },
-  login() {
-    console.log(this.data);
+  login() { 
     var accountName = this.data.accountName;
     var accountPassword = this.data.accountPassword;
     if (accountName == "") {
@@ -49,16 +48,17 @@ Page({
     } 
     $api.login(params)
       .then((res) => {
+        console.log(res);
         if(res.data.code == 200){
           wx.showToast({
             title: '登录成功',
             icon:"none",
           }) 
-          var token = res.data.result;
+          let token = res.data.result; 
           wx.setStorage({
             key: "token",
             data: token
-          })
+          })  
           wx.navigateBack({
             delta: 1
         })

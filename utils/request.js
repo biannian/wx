@@ -2,19 +2,11 @@ const GET = 'GET';
 const POST = 'POST';
 
  
-const baseURL = 'http://localhost:8087';
-var token;
+const baseURL = 'http://localhost:8087'; 
 function request(method, url, data) {
-    return new Promise(function (resolve, reject) {
-       
-        wx.getStorage({
-            key: 'token',
-            success (res) {
-                token = res.data
-            }
-          })
+    return new Promise(function (resolve, reject) { 
         let header = {
-            'token':token,
+            'token':wx.getStorageSync('token'),
             'content-type': 'application/json',
         };
         wx.request({
@@ -22,12 +14,14 @@ function request(method, url, data) {
             method: method,
             data: method === POST ? JSON.stringify(data) : data,
             header: header,
-            success(res) {
+            success(res) { 
                 //请求成功 
                 if (res.statusCode == 200) {
                     resolve(res);
                 } else {
                     switch (res.statusCode) {
+                        case 213:
+                        break;
                         case 400:
                             wx.showToast({
                                 title: '错误请求',
