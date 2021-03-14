@@ -22,7 +22,7 @@
 		</block> 
 	</view>
 	<view hidden="{{activeIndex != 0 }}">
-						<orderFood shop="{{shop}}"></orderFood>
+						<orderFood scrollTop="{{scrollTop}}" shopId="{{shopId}}" shop="{{shop}}"></orderFood>
 						</view>
 					<view hidden="{{activeIndex != 1 }}">
 					 <comment></comment>

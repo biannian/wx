@@ -1,12 +1,13 @@
 const GET = 'GET';
 const POST = 'POST';
 
- 
-const baseURL = 'http://localhost:8087'; 
+
+const baseURL = 'http://localhost:8087';
+
 function request(method, url, data) {
-    return new Promise(function (resolve, reject) { 
+    return new Promise(function (resolve, reject) {
         let header = {
-            'token':wx.getStorageSync('token'),
+            'token': wx.getStorageSync('token'),
             'content-type': 'application/json',
         };
         wx.request({
@@ -14,14 +15,18 @@ function request(method, url, data) {
             method: method,
             data: method === POST ? JSON.stringify(data) : data,
             header: header,
-            success(res) { 
+            success(res) {
                 //请求成功 
                 if (res.statusCode == 200) {
                     resolve(res);
                 } else {
                     switch (res.statusCode) {
                         case 213:
-                        break;
+                            wx.setStorage({
+                                key: 'token',
+                                data: res.header.token
+                            })
+                            break;
                         case 400:
                             wx.showToast({
                                 title: '错误请求',
@@ -46,23 +51,23 @@ function request(method, url, data) {
                                 }
                             })
                             break;
-                            case 402:
-                                wx.showModal({
-                                    title: '提示',
-                                    content: '登录过期，请重新登陆',
-                                    success(res) {
-                                        if (res.confirm) {
-                                            wx.redirectTo({
-                                                url: '/pages/Login/Login'
-                                            })
-                                        } else if (res.cancel) {
-                                            wx.navigateBack({
-                                                delta: 1
-                                            })
-                                        }
+                        case 402:
+                            wx.showModal({
+                                title: '提示',
+                                content: '登录过期，请重新登陆',
+                                success(res) {
+                                    if (res.confirm) {
+                                        wx.redirectTo({
+                                            url: '/pages/Login/Login'
+                                        })
+                                    } else if (res.cancel) {
+                                        wx.navigateBack({
+                                            delta: 1
+                                        })
                                     }
-                                })
-                                break;
+                                }
+                            })
+                            break;
                     }
                 }
             },

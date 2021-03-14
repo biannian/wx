@@ -2,7 +2,7 @@ const $api = require('../../api/api').API;
 Page({
 
   data: {
-    buyerAddress: {},
+    buyerAddress: [],
     buyerAccountName:"",
   },
 
@@ -15,8 +15,7 @@ Page({
   getAddress(){
     var that = this;
     wx.chooseAddress({
-      success(res) {
-        
+      success(res) { 
         let addressMessage={
           buyerAccountName:that.data.buyerAccountName,
           buyerName:res.userName,
@@ -26,7 +25,10 @@ Page({
         }
         $api.updateAddress(addressMessage)
         .then((response)=>{
-          console.log(response);
+          wx.showToast({
+            title: '添加成功',
+            icon:"none"
+          })
         })
       }
     }) 
@@ -47,6 +49,7 @@ Page({
               this.setData({
                 buyerAddress: address
               })
+              console.log(this.data.buyerAddress);
             }
           })
 

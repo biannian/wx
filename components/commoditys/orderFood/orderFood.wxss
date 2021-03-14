@@ -17,18 +17,17 @@
   background-color: white;
 }
 
-.placeholder {
-  margin: 7px;
-  padding: 0 15px;
+.placeholder { 
+  padding: 0 25px;
   text-align: center;
-  background-color: var(--weui-BG-1);
+  background-color: var ;
   height: 2.3em;
   line-height: 2.3em;
-  color: var(--weui-FG-1);
+  color: var;
 }
 
 .placeholderon {
-  padding: 10px;
+  padding:0 20px;
   background-color: white;
   height: 2.3em;
   line-height: 2.3em;
@@ -66,6 +65,9 @@
 .menus{
   top: 0;
   position: fixed;
+}
+.shop{
+  margin-left:19.8%;
 }
 .button{
   float: inline-end;

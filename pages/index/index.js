@@ -18,14 +18,15 @@ Page({
   onPullDownRefresh: function () {
     wx.vibrateShort();
     wx.showNavigationBarLoading(); 
+    this.queryAllShop();
     wx.stopPullDownRefresh();
-    wx.hideNavigationBarLoading(); //完成停止加载图标
-    this.onLoad();
+    wx.hideNavigationBarLoading(); //完成停止加载图标 
 },
   //页面加载
   onLoad: function (options) {  
-   this.queryAllShop();
+    this.queryAllShop();
   },
+ 
   queryAllShop(){
     $api.queryAllShop()
     .then(res =>{

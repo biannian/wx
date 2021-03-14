@@ -2,9 +2,9 @@ const $api = require('../../api/api').API;
 
 Page({ 
 sort(e){
-  let property = e.currentTarget.dataset.property;
+  let property = e.currentTarget.dataset.property; 
   let shops = this.data.shops;
-  
+  console.log(shops);
   shops.sort(this.compare(property,this.data.sortRule)); 
   this.setData({
     shops:shops,
