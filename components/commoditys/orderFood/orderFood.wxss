@@ -73,3 +73,9 @@
   float: inline-end;
   margin-inline: 5%;
 }
+.fixImage{ 
+  z-index: 5;
+  left: 20%;
+  bottom: 40%;
+  position: fixed;
+}

@@ -2,36 +2,48 @@ const $api = require('../../api/api').API;
 Page({
 
   data: {
+    shopId: "",
+    shopSendPrice: "",
+    shopName: "",
     buyerAddress: [],
-    buyerAccountName:"",
+    buyerAccountName: "",
   },
 
 
-  onLoad() {
+  onLoad(options) {
     this.getBuyerAddress();
-
+    var shopId = options.shopId;
+    var shopSendPrice = options.shopSendPrice;
+    var shopName = options.shopName;
+    this.setData({
+      shopId: shopId,
+      shopSendPrice: shopSendPrice,
+      shopName: shopName,
+    }) 
+    
   },
- 
-  getAddress(){
+
+  getAddress() {
     var that = this;
     wx.chooseAddress({
-      success(res) { 
-        let addressMessage={
-          buyerAccountName:that.data.buyerAccountName,
-          buyerName:res.userName,
-          buyerSex:1,
-          buyerAddress:res.provinceName+res.cityName+res.countyName+res.detailInfo,
-          buyerTel:res.telNumber
+      success(res) {
+        let addressMessage = {
+          buyerAccountName: that.data.buyerAccountName,
+          buyerName: res.userName,
+          buyerSex: 1,
+          buyerAddress: res.provinceName + res.cityName + res.countyName + res.detailInfo,
+          buyerTel: res.telNumber
         }
         $api.updateAddress(addressMessage)
-        .then((response)=>{
-          wx.showToast({
-            title: '添加成功',
-            icon:"none"
+          .then((response) => {
+            wx.showToast({
+              title: '添加成功',
+              icon: "none"
+            })
           })
-        })
       }
-    }) 
+    })
+    that.onLoad();
   },
   getBuyerAddress() {
     $api.getAccount()
@@ -39,8 +51,8 @@ Page({
         var accountName = res.data.result.accountName;
         $api.getBuyerAddress(accountName)
           .then((resp) => {
-        console.log(resp);
-            if (resp.data.code == -1) { 
+
+            if (resp.data.code == -1) {
               this.setData({
                 buyerAccountName: accountName
               })
@@ -49,7 +61,7 @@ Page({
               this.setData({
                 buyerAddress: address
               })
-              console.log(this.data.buyerAddress);
+
             }
           })
 

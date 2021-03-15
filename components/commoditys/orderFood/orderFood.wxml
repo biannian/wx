@@ -15,18 +15,16 @@
 							wx:for-item="commodity" wx:key="in">
 							<a class="weui-media-box weui-media-box_appmsg">
 								<view style="height:80px;width:80px" class="weui-media-box__hd">
-									<image style="height:80px;width:80px;border-radius:10rpx;" src="{{commodity.commodityImg}}"></image>
+									<image id="{{commodity.commodityImg}}" bindtap="image" style="height:80px;width:80px;border-radius:10rpx;" src="{{commodity.commodityImg}}"></image>
 								</view>
-								<view class="weui-media-box__bd">
+								<view bindtap="closeImg" class="weui-media-box__bd">
 									<view style="font-size:20px;">{{commodity.commodityName}}</view>
 									<span >
 										<text style="font-size:15px;color:red">￥{{commodity.commodityPrice}} </text>
 										<text style="font-size:13px;"> 库存:{{commodity.commodityNumber}}</text>
 									</span>
-									<span class="button"> 
-										
-										<span wx:if="{{commodity.shoppingNumber != '0'}}">
-										
+									<span class="button">  
+										<span wx:if="{{commodity.shoppingNumber != '0'}}"> 
 											<mp-icon id="{{commodity.commodityId}}" icon="close2" color="#409EFF" bindtap="deleteShopping"
 												size="{{25}}"></mp-icon> 
 												{{commodity.shoppingNumber}}
@@ -93,10 +91,9 @@
 				<text style="color:red">￥</text> <text>{{totalMoney}}</text>
 				<text>\n</text>
 				<text style="font-size:25rpx;color:#909399;">另需配送费￥{{shop.shop.shopSendPrice}}</text>
-			</view>
-
+			</view> 
 		</view>
 		<view bindtap="toBuy" class="buy">结算</view>
-	</view>
-
-</view>
+	</view> 
+</view> 
+<image hidden="{{imgOn}}" class="fixImage" style="width:230px;height:230px" src="{{img}}"></image>  

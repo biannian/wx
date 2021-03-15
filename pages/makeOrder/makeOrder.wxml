@@ -1,8 +1,26 @@
-<view>
-<view bindtap="getAddress"> 选择收货地址</view>
- 
-  {{buyerAddress.buyerName}}
-  {{buyerAddress.buyerTel}}
-  {{buyerAddress.buyerAddress}}
-
+<view class="address">
+  <view wx:if="{{buyerAddress ==''}}" style="padding:20px;font-size:20px" bindtap="getAddress"> 
+    请选择收货地址 
+  </view>
+  <view>
+    <view style="font-size:23px;color:#303133"> {{buyerAddress.buyerAddress}}</view>
+    <text style="font-size:18px;color:#909399"> {{buyerAddress.buyerName}} {{buyerAddress.buyerTel}} </text>
+  </view>
+</view>
+<view class="address">
+  <text style="font-size:19px"> {{shopName}}</text>
+  <a class="weui-media-box weui-media-box_appmsg">
+    <view class="weui-media-box__hd">
+      <image style="height:60px;width:60px;border-radius:10rpx;" src="{{commodity.commodityImg}}"></image>
+    </view>
+    <view class="weui-media-box__bd">
+      <view style="font-size:20px;">{{commodity.commodityName}}</view>
+      <span>
+        <text style="font-size:15px;color:red">￥{{commodity.commodityPrice}} </text>
+      </span>
+      <span>
+        {{commodity.shoppingNumber}}
+      </span>
+    </view>
+  </a>
 </view>

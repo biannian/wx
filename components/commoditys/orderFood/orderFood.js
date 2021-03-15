@@ -1,5 +1,7 @@
  Component({
    data: {
+    img:"",
+    imgOn:false,
      menuMap: [],
      totalMoney: 0,
      shops: [],
@@ -33,7 +35,9 @@
            menuId = map.menuId; 
          }
        }) 
+       
        this.setData({
+        imgOn:true,
          activeIndex:menuId
        })
       
@@ -215,7 +219,19 @@
          })
        }).exec()
      },
-
+     closeImg(){
+      this.setData({ 
+        imgOn:true,
+      })
+     },
+     image(e){
+       var img = e.currentTarget.id ;
+       var imgOn = !this.data.imgOn;
+   this.setData({
+     img:img,
+     imgOn:imgOn,
+   })
+     },
      close: function () {
        this.setData({
          dialog: false,
@@ -247,9 +263,12 @@
            duration: 1500
          })
          return;
-       }
+       } 
+       var shopId = this.data.shop.shop.shopId;
+       var shopSendPrice = this.data.shop.shop.shopSendPrice;
+       var shopName = this.data.shop.shop.shopName;
        wx.navigateTo({
-         url: '/pages/makeOrder/makeOrder'
+         url: "/pages/makeOrder/makeOrder?shopId="+shopId+"&shopSendPrice="+shopSendPrice+"&shopName="+shopName
        })
      },
    }

@@ -1,0 +1,5 @@
+.address{
+  border-radius: 15rpx;
+  margin:10px;
+  border:2px solid #E4E7ED
+}
