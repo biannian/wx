@@ -1,5 +1,6 @@
  Component({
    data: {
+     menuMap: [],
      totalMoney: 0,
      shops: [],
      dialog: false,
@@ -18,51 +19,25 @@
    },
    ready: function () {
      this.shopping();
-
+     this.commodityHeight();
    },
    options: {
      addGlobalClass: true
    },
    observers: {
-    'scrollTop': function (scrollTop) {
-     var menus = []; 
-      var commodity = this.data.shop.shop.commodity;
-      if(commodity){ 
-        commodity.forEach(commo=>{
-          if(!menus.includes(commo.commodityMenuId)){
-            menus.push(commo.commodityMenuId);
-          } 
-        }) 
-          for (let i = 0; i < menus.length; i++) {
-            this.createSelectorQuery().select('#shopMenu' + menus[i]).boundingClientRect((res) => {   
-               if(scrollTop >= res.top){
-                 if(menus[i+1]){
-                  this.createSelectorQuery().select('#shopMenu' + menus[i+1]).boundingClientRect((res) => {  
-                    if(scrollTop < res.top){
-                      this.setData({
-                        activeIndex:i+1
-                      })
-                    }
-                  }).exec()
-                 }{
-                  this.setData({
-                    activeIndex:i
-                  })
-                 } 
-               }
-            }).exec()
-             
-          }
-
-
-        menus.forEach(menu=>{
-          this.createSelectorQuery().select('#shopMenu' + menu).boundingClientRect((res) => {  
-            menusMap.set(menu,res.top);
-          }).exec()
-        })
-       
-      } 
-    },
+     'scrollTop': function (scrollTop) {
+       var menuMap = this.data.menuMap;
+       var menuId = this.data.activeIndex;  
+       menuMap.forEach(map => { 
+         if (map.height <= scrollTop) {
+           menuId = map.menuId; 
+         }
+       }) 
+       this.setData({
+         activeIndex:menuId
+       })
+      
+     },
      'shops': function (shops) {
        var shopId = this.data.shopId;
        wx.setStorage({
@@ -75,6 +50,33 @@
      }
    },
    methods: {
+
+     commodityHeight() {
+       var menus = []; 
+       var menuMaps = [];
+       var commodity = this.data.shop.shop.commodity;
+       if (commodity) {
+         commodity.forEach(commo => {
+           if (!menus.includes(commo.commodityMenuId)) {
+             menus.push(commo.commodityMenuId);
+           }
+         }) 
+         menus.forEach(menu => {
+          this.createSelectorQuery().select('#shopMenu' + menu).boundingClientRect((res) => {
+            var menuMap ={
+              menuId: '',
+              height: ''
+             };
+            menuMap.menuId = menu;
+            menuMap.height = res.top; 
+            menuMaps.push(menuMap);
+          }).exec() 
+         }); 
+         this.setData({
+           menuMap: menuMaps
+         }) 
+       }
+     },
      //排序
      compare: function (property) {
        return function (a, b) {
@@ -198,22 +200,22 @@
        });
      },
      menuTap(e) {
-      wx.pageScrollTo({
-        scrollTop: 0,
-        duration: 0
-      }) 
+       wx.pageScrollTo({
+         scrollTop: 0,
+         duration: 0
+       })
        var menuId = e.currentTarget.id;
        this.setData({
          activeIndex: menuId
        });
-       this.createSelectorQuery().select('#shopMenu' + menuId).boundingClientRect((res) => { 
-           wx.pageScrollTo({
-             scrollTop:  res.top,
-             duration: 300
-           }) 
+       this.createSelectorQuery().select('#shopMenu' + menuId).boundingClientRect((res) => {
+         wx.pageScrollTo({
+           scrollTop: res.top+3,
+           duration: 300
+         })
        }).exec()
      },
-     
+
      close: function () {
        this.setData({
          dialog: false,
