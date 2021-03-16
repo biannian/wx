@@ -1,0 +1,29 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="weui-msg">
+    <view class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></view>
+    <view class="weui-msg__icon-area" style="color:#67C23A;margin-top:-20px;font-size:20px">支付成功</view>
+    <view class="weui-msg__text-area">
+      <h2 class="weui-msg__title" style="font-size:25px">￥{{money}}</h2>
+      <view class="weui-msg__desc" style="font-size:15px;color:#909399;margin-top:60px">收款方</view>
+      <view class="weui-msg__desc">
+        <image style="width:50px;height:50px"
+          src="https://bkimg.cdn.bcebos.com/pic/b2de9c82d158ccbf6c81e0892992ab3eb13533faeb64?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UyNzI=,g_7,xp_5,yp_5/format,f_auto">
+        </image>
+      </view>
+      <view class="weui-msg__desc" style="margin-top:-20px">饿了吗</view>
+    </view>
+    <view class="weui-msg__opr-area">
+      <view class="weui-btn-area">
+        <a href="javascript:history.back();" style="margin-top:150px" class="weui-btn weui-btn_primary">确定</a>
+      </view>
+    </view>
+    <view class="weui-msg__tips-area">
+
+    </view>
+    <view class="weui-msg__extra-area">
+      <view class="weui-footer">
+        <view class="weui-footer__text">2021-2021 eleme by guangke</view>
+      </view>
+    </view>
+  </view>
+</view>

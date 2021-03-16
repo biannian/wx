@@ -1,0 +1,9 @@
+<view>
+  <view style="text-align:center;">备注</view> 
+  <view class="text" >
+    <textarea bindinput="setTips"  placeholder="可以备注口味等" value="{{tips}}" cols="10" rows="10"></textarea> 
+  </view>
+  <button bindtap="submit" class="weui-btn weui-btn_primary">确定</button>
+ 
+</view>
+

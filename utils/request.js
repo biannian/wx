@@ -19,13 +19,14 @@ function request(method, url, data) {
                 //请求成功 
                 if (res.statusCode == 200) {
                     resolve(res);
-                } else {
+                } else { 
                     switch (res.statusCode) {
                         case 213:
                             wx.setStorage({
                                 key: 'token',
-                                data: res.header.token
+                                data: res.header.newToken
                             })
+                            resolve(res);
                             break;
                         case 400:
                             wx.showToast({

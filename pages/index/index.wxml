@@ -82,7 +82,7 @@
   </view> 
   <view style="margin-top:10px" class="weui-panel__bd" wx:for="{{shops}}" wx:key="index" wx:for-item="shop">
     <navigator url="/pages/commodity/commodity?shopId={{shop.shopId}}">
-    <a bindtap="refresh" class="weui-media-box weui-media-box_appmsg"> 
+    <a class="weui-media-box weui-media-box_appmsg"> 
       <view class="weui-media-box__hd">
         <image style="height:90px;width:90px;margin-top:-15px;border-radius: 10rpx;" src="{{shop.shopImg}}"></image>
       </view> 

@@ -138,9 +138,16 @@ Page({
                     key:"token",
                     data:token
                   }) 
-                  wx.navigateBack({
-                    delta: 2
-                })
+                  wx.showToast({
+                    title: '提交成功',
+                    icon:"success",
+                    duration:"1000"
+                  })
+                  setTimeout(function () {
+                    wx.navigateBack({
+                      delta: 2
+                  })
+                  }, 700) 
                 }else{
                   wx.showToast({
                     title: '更新失败，请联系管理员',

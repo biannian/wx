@@ -1,17 +1,19 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
+    "pages/addTips/addTips",
     "pages/commodity/commodity",
-    "pages/Login/Login", 
+    "pages/msgSuccess/msgSuccess",
+    "pages/Login/Login",
     "pages/order/order",
     "pages/my/my",
     "pages/search/search",
-    "pages/shops/shops", 
+    "pages/shops/shops",
     "pages/account/account",
-    "pages/makeOrder/makeOrder", 
+    "pages/makeOrder/makeOrder",
     "components/commoditys/orderFood/orderFood",
     "components/commoditys/comment/comment",
-    "components/commoditys/shopInfo/shopInfo" 
+    "components/commoditys/shopInfo/shopInfo"
   ],
   "tabBar": {
     "color": "#454545",
@@ -19,8 +21,7 @@
     "borderStyle": "white",
     "backgroundColor": "#ffffff",
     "position": "bottom",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/index",
         "iconPath": "pages/resources/picture/shouye.png",
         "selectedIconPath": "pages/resources/picture/shouyeSelected.png",
@@ -40,12 +41,12 @@
       }
     ]
   },
-  "window":{ 
-    "onReachBottomDistance": 50, 
-    "backgroundTextStyle":"dark",
+  "window": {
+    "onReachBottomDistance": 50,
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#409EFF",
     "navigationBarTitleText": "饿了吗",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

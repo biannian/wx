@@ -1,26 +1,110 @@
-<view class="address">
-  <view wx:if="{{buyerAddress ==''}}" style="padding:20px;font-size:20px" bindtap="getAddress"> 
-    请选择收货地址 
-  </view>
-  <view>
-    <view style="font-size:23px;color:#303133"> {{buyerAddress.buyerAddress}}</view>
-    <text style="font-size:18px;color:#909399"> {{buyerAddress.buyerName}} {{buyerAddress.buyerTel}} </text>
+<view style="background-image: linear-gradient(#409EFF, #E4E7ED);">
+  <view class="address">
+    <view wx:if="{{buyerAddress ==''}}" style="padding:20px;font-size:20px" bindtap="getAddress">
+
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells">
+            <a class="weui-cell weui-cell_active weui-cell_access weui-cell_example">
+              <view class="weui-cell__bd weui-cell_primary">
+                <view>请选择收货地址</view>
+              </view>
+              <text class="weui-cell__ft"></text>
+            </a>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view bindtap="getAddress">
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells">
+            <a class="weui-cell weui-cell_active weui-cell_access weui-cell_example">
+              <view class="weui-cell__bd weui-cell_primary">
+                <view style="font-size:23px;color:#303133"> {{buyerAddress.buyerAddress}}</view>
+                <text style="font-size:18px;color:#909399"> {{buyerAddress.buyerName}} {{buyerAddress.buyerTel}} </text>
+              </view>
+              <text class="weui-cell__ft"></text>
+            </a>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
-<view class="address">
-  <text style="font-size:19px"> {{shopName}}</text>
-  <a class="weui-media-box weui-media-box_appmsg">
-    <view class="weui-media-box__hd">
-      <image style="height:60px;width:60px;border-radius:10rpx;" src="{{commodity.commodityImg}}"></image>
+<view style="background-color:#E4E7ED">
+  <view class="address">
+    <text style="font-size:19px;padding:10px"> {{shopName}}</text>
+    <view wx:for="{{shops}}" wx:key="index" wx:for-item="shops">
+      <a class="weui-media-box weui-media-box_appmsg">
+        <view class="weui-media-box__hd">
+          <image style="height:60px;width:60px;border-radius:10rpx;" src="{{shops.commodityImg}}"></image>
+        </view>
+        <view class="weui-media-box__bd">
+          <view style="font-size:20px;">{{shops.commodityName}}</view>
+
+          <span style="font-size:14px;color:#909399;">
+            X {{shops.shoppingNumber}}
+          </span>
+          <span style="float:right">
+            ￥{{shops.shoppingNumber * shops.commodityPrice}}
+          </span>
+        </view>
+      </a>
     </view>
-    <view class="weui-media-box__bd">
-      <view style="font-size:20px;">{{commodity.commodityName}}</view>
-      <span>
-        <text style="font-size:15px;color:red">￥{{commodity.commodityPrice}} </text>
-      </span>
-      <span>
-        {{commodity.shoppingNumber}}
-      </span>
+  </view>
+  <view class="tips">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells">
+          <a class="weui-cell weui-cell_active weui-cell_access weui-cell_example">
+            <view class="weui-cell__bd weui-cell_primary">
+              <view bindtap="addTips">
+                备注:<text style="font-size:15px;color:#909399;">{{tips}}</text>
+              </view>
+            </view>
+            <text class="weui-cell__ft"></text>
+          </a>
+          <a class="weui-cell weui-cell_active weui-cell_access weui-cell_example">
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{tablewares}}">
+                  <view class="picker">
+                    餐具:<text style="font-size:15px;color:#909399;">{{tableware}}</text>
+                  </view>
+                </picker>
+              </view>
+            </view>
+            <text class="weui-cell__ft"></text>
+          </a>
+        </view>
+      </view>
     </view>
-  </a>
+  </view>
+  <text>\n</text>
+</view>
+<text>\n</text>
+<text>\n</text>
+<view class="orderBuy">
+  <view style="margin-left:35%;margin-top:4%">
+    <text>合计:</text>
+    <text style="font-size:14px;">￥</text>
+    <text style="color:red;font-size:20px;"> {{totalMoney}}</text>
+  </view>
+  <text bindtap="buy" class="buy">提交订单</text>
+</view>
+<view class="fadeIn" wx:if="{{buyOn}}">
+  <view class="weui-mask">
+  </view>
+  <view class="weui-dialog">
+    <a class="weui-icon-btn" bindtap="closeBuy"><i class="weui-icon-close-thin"></i></a>
+    <view class="weui-dialog__hd"><strong class="weui-dialog__title">请支付</strong></view>
+    <view class="weui-dialog__bd" style="font-size:20px;color:black;"> ￥ {{totalMoney}} </view>
+    <view class="weui-dialog__ft">
+      <span> <input style="border:1px solid black;margin:10px;width:80%" placeholder="请输入密码" type="password"
+        bindinput="pwd"   /></span>
+      <span> <a style="margin-top:-20%" class="weui-dialog__btn weui-dialog__btn_primary"
+          bindtap="checkPwd">支付</a></span>
+    </view>
+  </view>
 </view>

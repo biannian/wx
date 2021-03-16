@@ -87,7 +87,7 @@
 			<image style="width:45px;height:45px;margin-left:7%;margin-top:2%;border-radius:20rpx;"
 				src="/pages/resources/picture/shop.jpg">
 			</image>
-			<view style="margin-left:23%;margin-top:-15%">
+			<view style="margin-left:23%;margin-top:-13%">
 				<text style="color:red">￥</text> <text>{{totalMoney}}</text>
 				<text>\n</text>
 				<text style="font-size:25rpx;color:#909399;">另需配送费￥{{shop.shop.shopSendPrice}}</text>
