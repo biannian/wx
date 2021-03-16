@@ -1,7 +1,6 @@
 const $api = require('../../api/api').API;
 const formatTime = require('../../utils/util').formatTime;
-Page({
-
+Page({ 
   data: {
     pwd: '',
     buyOn: false,
@@ -24,9 +23,9 @@ Page({
   onLoad(options) {
     this.getBuyerAddress();
     var shopId = options.shopId;
-    var shopSendPrice = options.shopSendPrice;
+    var shopSendPrice = Number(options.shopSendPrice);
     var shopName = options.shopName;
-    var totalMoney = options.totalMoney;
+    var totalMoney = Number(options.totalMoney)+shopSendPrice;
     var shops = wx.getStorageSync("shop" + shopId);
     this.setData({
       totalMoney: totalMoney,
@@ -51,12 +50,13 @@ Page({
     })
   },
   //新增地址
-  getAddress() {
+  getAddress() { 
     var that = this;
+    var buyerAccountName =that.data.buyerAccountName;
     wx.chooseAddress({
       success(res) {
-        let addressMessage = {
-          buyerAccountName: that.data.buyerAccountName,
+        var addressMessage = {
+          buyerAccountName:buyerAccountName,
           buyerName: res.userName,
           buyerSex: 1,
           buyerAddress: res.provinceName + res.cityName + res.countyName + res.detailInfo,
@@ -67,17 +67,22 @@ Page({
             wx.showToast({
               title: '添加成功',
               icon: "none"
-            })
-          })
+            }) 
+            that.getBuyerAddress();
+            
+          }) 
       }
-    })
-    that.onLoad();
+    })  
+    
   },
   //从后台查询买家地址
   getBuyerAddress() {
     $api.getAccount()
-      .then((res) => {
+      .then((res) => { 
         var accountName = res.data.result.accountName;
+        this.setData({
+          buyerAccountName: accountName
+        }) 
         wx.setStorage({
           data: accountName,
           key: 'accountName',
@@ -85,25 +90,32 @@ Page({
         $api.getBuyerAddress(accountName)
           .then((resp) => {
             if (resp.data.code == -1) {
-              this.setData({
-                buyerAccountName: accountName
-              })
+           
             } else {
               var address = resp.data.result;
               this.setData({
                 buyerAddress: address
-              })
-
+              }) 
             }
           })
-      })
-
+      }) 
+   
   },
   //下单
-  buy() {
-    this.setData({
-      buyOn: true
+  buy() { 
+    var address = this.data.buyerAddress;
+    if(address.length != '0'){
+      this.setData({
+        buyOn: true
+      })
+    }else{
+    wx.showToast({
+      title: '请选择收货地址',
+      icon:"error"
     })
+    }
+  
+   
   },
   closeBuy() {
     this.setData({

@@ -6,6 +6,7 @@
     "pages/msgSuccess/msgSuccess",
     "pages/Login/Login",
     "pages/order/order",
+    "pages/orders/orders",
     "pages/my/my",
     "pages/search/search",
     "pages/shops/shops",
@@ -28,7 +29,7 @@
         "text": "门店"
       },
       {
-        "pagePath": "pages/order/order",
+        "pagePath": "pages/orders/orders",
         "iconPath": "pages/resources/picture/orderList.png",
         "selectedIconPath": "pages/resources/picture/orderListSelected.png",
         "text": "订单"
