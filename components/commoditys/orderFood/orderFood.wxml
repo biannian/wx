@@ -2,7 +2,7 @@
 	<view bindtouchstart='touchStart' class="page__bd page__bd_spacing">
 		<view class="weui-flex">
 			<view class="{{scrollTop >=248 ? 'menus' : ''}}"> 
-				<view style="background-color: #f6f6f6;" wx:for="{{shop.shopMenu}}" wx:key="index">
+				<view  wx:for="{{shop.shopMenu}}" wx:key="index">
 					<view class="placeholder{{activeIndex == index ? 'on' : ''}}" id="{{index}}" bindtap="menuTap">
 						<text>{{shop.shopMenu[index]}}</text>
 					</view>

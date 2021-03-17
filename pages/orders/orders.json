@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "订单",
+  "navigationBarBackgroundColor": "#409EFF",
+  "usingComponents": {},
+  "enablePullDownRefresh":true
 }
+ 

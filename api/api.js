@@ -11,7 +11,8 @@ const API = {
     updateAddress: (data) => request('POST', '/Buyer/updateAddress.do', data),
     login: (data) => request('GET', `/Login/login.do`, data), 
     addOrder: (data) => request('POST',`/Order/addOrder.do`, data),
-
+    selectOrder: (data) => request('GET',`/Order/selectOrder.do`, data), 
+    queryOrder: (data) => request('GET',`/Order/queryOrder.do`, data),
 };
 module.exports = {
     API: API

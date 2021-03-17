@@ -40,7 +40,7 @@ Page({
         icon: "none",
       })
       return;
-    } 
+    }
     let params = {
       accountPassword: accountPassword,
       accountName: accountName
@@ -58,12 +58,20 @@ Page({
             key: "token",
             data: token
           })
+          if (getCurrentPages().length > '1') {
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 700)
+          } else {
+            setTimeout(function () {
+              wx.reLaunch({
+                url: '/pages/my/my',
+              })
+            }, 700)
 
-          setTimeout(function () {
-            wx.navigateBack({
-              delta: 1
-            }) // 在当前同步流程结束后，下一个时间片执行 
-          }, 700)
+          }
         } else {
           //登录失败
           wx.showToast({
@@ -76,7 +84,7 @@ Page({
   wxLogin() {
     var that = this;
     wx.login({
-      success(res) { 
+      success(res) {
         if (res.code) {
           //发起网络请求
           let params = {
@@ -90,7 +98,7 @@ Page({
             .then((resp) => {
               console.log(resp);
               if (resp.data.result) {
-                if ("" == resp.data.result.token) { 
+                if ("" == resp.data.result.token) {
                   wx.redirectTo({
                     url: '/pages/account/account?openId=' + resp.data.result.openId,
                   })
@@ -104,11 +112,20 @@ Page({
                     title: '登录成功',
                     icon: "success",
                   })
-                  setTimeout(function () {
-                    wx.navigateBack({
-                      delta: 1
-                    }) // 在当前同步流程结束后，下一个时间片执行 
-                  }, 700)
+                  console.log(getCurrentPages());
+                  if (getCurrentPages().length > '1') {
+                    setTimeout(function () {
+                      wx.navigateBack({
+                        delta: 1
+                      })
+                    }, 700)
+                  } else {
+                    setTimeout(function () {
+                      wx.reLaunch({
+                        url: '/pages/my/my',
+                      })
+                    }, 700) 
+                  }
                 }
               } else {
                 console.log('登录服务器失败');

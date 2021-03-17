@@ -44,7 +44,7 @@
           <view style="font-size:20px;">{{shops.commodityName}}</view>
 
           <span style="font-size:14px;color:#909399;">
-            X {{shops.shoppingNumber}}
+            × {{shops.shoppingNumber}}
           </span>
           <span style="float:right">
             ￥{{shops.shoppingNumber * shops.commodityPrice}}

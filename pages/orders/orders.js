@@ -1,68 +1,70 @@
-const app = getApp()
+ 
+const $api = require('../../api/api').API;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    
+    current: 0,
+    orderlist:[]
   },
-  aa(){
-    console.log(123);
+  onLoad(){
+    this.queryAllShop();
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
+  queryAllShop(){
+    var orderBuyerAccount = wx.getStorageSync('accountName'); 
+    var params = {
+      orderBuyerAccount:orderBuyerAccount
+    }
+    $api.selectOrder(params)
+    .then(res =>{ 
+        this.setData({
+          orderlist: res.data.result
+        }) 
+    }) 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
+  toShop(e){   
+    wx.navigateTo({
+      url: '/pages/commodity/commodity?shopId='+ e.currentTarget.id,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
+  payorder:function(e){
+    var orderid=e.target.dataset.id;
+    wx.setStorageSync('orderid', orderid)
+    uctooPay.generateOrder();
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
+  switchSlider: function (e) {
+    this.setData({
+      current: e.target.dataset.index
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
+  changeSlider: function (e) {
+    this.setData({
+      current: e.detail.current
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
+  delorder:function(e){
+  wx.showToast({
+      title: '正在取消订单，请稍候...',
+      icon: 'loading',
+      duration: 10000
+  })
+    var that=this
+    console.log(e.target.dataset.id)
+    wx.request({
+      url: `${app.globalData.API_URL}`+'/order/'+e.target.dataset.id,
+      method: 'DELETE', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function(res){
+        if(res.data==1){
+           that.onLoad()
+          wx.hideToast()
+        }
+       
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
 })

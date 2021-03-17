@@ -1,3 +1,4 @@
+const $api = require('../../api/api').API;
  Page({
    data: {
     money:"",
@@ -7,6 +8,7 @@
       money: options.money
      })
    },
-  
-
+   queryOrder(){
+    $api.queryOrder()
+   } 
  })

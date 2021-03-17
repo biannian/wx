@@ -20,7 +20,7 @@
 .placeholder { 
   padding: 0 25px;
   text-align: center;
-  background-color: #EBEEF5;
+  background-color: #eceef1;
   height: 2.3em;
   line-height: 2.3em;
   color: var;

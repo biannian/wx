@@ -1,6 +1,6 @@
 const $api = require('../../api/api').API;
 const formatTime = require('../../utils/util').formatTime;
-Page({ 
+Page({
   data: {
     pwd: '',
     buyOn: false,
@@ -25,7 +25,7 @@ Page({
     var shopId = options.shopId;
     var shopSendPrice = Number(options.shopSendPrice);
     var shopName = options.shopName;
-    var totalMoney = Number(options.totalMoney)+shopSendPrice;
+    var totalMoney = Number(options.totalMoney) + shopSendPrice;
     var shops = wx.getStorageSync("shop" + shopId);
     this.setData({
       totalMoney: totalMoney,
@@ -50,13 +50,13 @@ Page({
     })
   },
   //新增地址
-  getAddress() { 
+  getAddress() {
     var that = this;
-    var buyerAccountName =that.data.buyerAccountName;
+    var buyerAccountName = that.data.buyerAccountName;
     wx.chooseAddress({
       success(res) {
         var addressMessage = {
-          buyerAccountName:buyerAccountName,
+          buyerAccountName: buyerAccountName,
           buyerName: res.userName,
           buyerSex: 1,
           buyerAddress: res.provinceName + res.cityName + res.countyName + res.detailInfo,
@@ -67,22 +67,22 @@ Page({
             wx.showToast({
               title: '添加成功',
               icon: "none"
-            }) 
+            })
             that.getBuyerAddress();
-            
-          }) 
+
+          })
       }
-    })  
-    
+    })
+
   },
   //从后台查询买家地址
   getBuyerAddress() {
     $api.getAccount()
-      .then((res) => { 
+      .then((res) => {
         var accountName = res.data.result.accountName;
         this.setData({
           buyerAccountName: accountName
-        }) 
+        })
         wx.setStorage({
           data: accountName,
           key: 'accountName',
@@ -90,32 +90,32 @@ Page({
         $api.getBuyerAddress(accountName)
           .then((resp) => {
             if (resp.data.code == -1) {
-           
+
             } else {
               var address = resp.data.result;
               this.setData({
                 buyerAddress: address
-              }) 
+              })
             }
           })
-      }) 
-   
+      })
+
   },
   //下单
-  buy() { 
+  buy() {
     var address = this.data.buyerAddress;
-    if(address.length != '0'){
+    if (address.length != '0') {
       this.setData({
         buyOn: true
       })
-    }else{
-    wx.showToast({
-      title: '请选择收货地址',
-      icon:"error"
-    })
+    } else {
+      wx.showToast({
+        title: '请选择收货地址',
+        icon: "error"
+      })
     }
-  
-   
+
+
   },
   closeBuy() {
     this.setData({
@@ -134,6 +134,8 @@ Page({
     var shopping = this.data.shops;
     var tips = this.data.tips;
     var tableware = this.data.tableware;
+    var buyerAddress = this.data.buyerAddress;
+    var totalMoney = this.data.totalMoney;
     let params = {
       accountName: accountName,
       accountPassword: pwd
@@ -141,38 +143,48 @@ Page({
     $api.login(params)
       .then((res) => {
         if (res.data.code == '200') {
-          wx.showToast({
-            title: '支付成功',
-            icon: "success"
-          })
+
           let time = formatTime("YYYY-mm-dd HH:MM:SS", new Date());
           let param = {
-            orderBuyerId:accountName,
+            buyerAddress: buyerAddress,
+            orderBuyerAccount: accountName,
             orderBuyerTime: time,
             orderState: '0',
             shopId: shopId,
-            shopping:shopping,
-            orderTips:tips,
-            tableware:tableware,
-          } 
-        $api.addOrder(param)
-        .then((res)=>{
-          if(res.data.code == '200'){
-            wx.reLaunch({
-              url: '../msgSuccess/msgSuccess?money='+this.data.totalMoney
-            })
+            shopping: shopping,
+            orderTips: tips,
+            tableware: tableware,
           }
-        })
-        wx.removeStorage({
-          key: 'shop'+shopId, 
-        })
+          $api.addOrder(param)
+            .then((res) => {
+              if (res.data.code == '200') {
+                wx.showToast({
+                  title: '支付成功',
+                  icon: "success"
+                })
+                wx.removeStorage({
+                  key: 'shop' + shopId,
+                })
+                setTimeout(function () {
+                  wx.reLaunch({
+                    url: '../msgSuccess/msgSuccess?money=' + totalMoney
+                  })
+                }, 700)  
+              } else {
+                wx.showToast({
+                  title: '支付失败',
+                  icon: "error"
+                })
+              }
+            })
+
         } else {
           wx.showToast({
             title: '密码错误',
             icon: "error"
           })
           this.setData({
-            buyOn:false
+            buyOn: false
           })
         }
       })
