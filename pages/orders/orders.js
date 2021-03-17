@@ -25,6 +25,11 @@ Page({
       url: '/pages/commodity/commodity?shopId='+ e.currentTarget.id,
     })
   },
+  toOrder(e){
+    wx.navigateTo({
+      url: '/pages/order/order?orderId='+ e.currentTarget.id,
+    }) 
+  },
   payorder:function(e){
     var orderid=e.target.dataset.id;
     wx.setStorageSync('orderid', orderid)

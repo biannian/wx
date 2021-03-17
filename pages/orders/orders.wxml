@@ -24,7 +24,7 @@
               <text wx:if="{{orderlist.orders[index].orderState == 3}}">待评价</text>
               <text wx:if="{{orderlist.orders[index].orderState == 4}}">已完成</text>
             </view>
-            <view class="weui-media-box weui-media-box_appmsg content-color">
+            <view bindtap="toOrder" id="{{orderlist.orders[index].orderId}}" class="weui-media-box weui-media-box_appmsg content-color">
               <view style="width:75%" class="weui-media-box__hd_in-appmsg ">
                 <block wx:for="{{orderlist.shoppings[index]}}" wx:for-item="itemlist" wx:key="index">
                   <text wx:if="{{index < '2'}}">{{itemlist.commodityName}}×{{itemlist.shoppingNumber}}</text>
