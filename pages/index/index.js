@@ -1,5 +1,6 @@
   
  const $api = require('../../api/api').API;
+
 Page({ 
     onShareAppMessage() {
         return {
@@ -23,13 +24,13 @@ Page({
     wx.hideNavigationBarLoading(); //完成停止加载图标 
 },
   //页面加载
-  onLoad: function (options) {  
+  onLoad: function (options) {   
     this.queryAllShop();
   },
  
-  queryAllShop(){
+  queryAllShop(){ 
     $api.queryAllShop()
-    .then(res =>{
+    .then(res =>{ 
         this.setData({
             shops: res.data.result
         }) 

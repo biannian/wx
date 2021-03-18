@@ -1,1 +1,24 @@
+.address{
+  border-radius: 15rpx;  
+  margin:0 10px 5px 10px;
+  border:2px solid white;
+  background-color: white;
+}
+.orderBuy{  
+  z-index: 3;
+  position: fixed;
+  bottom: 0rpx;
+  opacity: 0.95;
+  background-color: #EBEEF5;
+  height: 10%; 
+  width: 100%;
+}
+.tips{ 
+  border-radius: 15rpx;  
+  margin:0 10px 0px 10px;
+  border:2px solid white;
+  background-color: white;
+
+}
+ 
  

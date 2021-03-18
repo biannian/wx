@@ -1,5 +1,21 @@
- 
-
-<view class="page__bd">
-
+  
+<view style="margin-top:10px" class="weui-panel__bd" wx:for="{{shops}}" wx:key="index" wx:for-item="shop">
+  <navigator url="/pages/commodity/commodity?shopId={{shop.shopId}}">
+  <a class="weui-media-box weui-media-box_appmsg">
+    <view class="weui-media-box__hd">
+      <image style="height:90px;width:90px;margin-top:-15px" src="{{shop.shopImg}}"></image>
+    </view>
+    <view class="weui-media-box__bd">
+      <h4 style="font-size:20px;margin-left:30px">{{shop.shopName}}</h4>
+      <view class="weui-media-box__desc">
+        <p style="font-size:16px;color:red;margin-left:30px">{{shop.shopScore}}分</p>
+        <p style="margin-left:20px">销量:{{shop.shopSalesVolume}}</p>
+      </view>
+      <view class="weui-media-box__desc">
+        <p style="margin-left:30px">起送:{{shop.shopStartPrice}}￥</p>
+        <p style="margin-left:10px"> 配送:{{shop.shopSendPrice}}￥</p>
+      </view>
+    </view>
+  </a>
+  </navigator>
 </view>

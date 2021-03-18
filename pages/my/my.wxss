@@ -1,0 +1,20 @@
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-content: right; 
+
+} 
+.userinfo-avatar { 
+  overflow: hidden;
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname{
+  width: 300rpx;
+  font-size:25px;
+}
+.usermotto {
+  margin-top: 200px;
+}

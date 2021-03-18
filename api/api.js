@@ -3,6 +3,7 @@ const API = {
     queryAllShop: () => request('GET', `/shop/queryAll.do`),
     queryShop: (data) => request('GET', `/shop/queryByName.do?shopName=` + data),
     queryById: (data) => request('GET', `/shop/queryById.do?shopId=` + data),
+    queryByType: (data) => request('GET', `/shop/queryByType.do?shopTypeId=` + data), 
     getBuyerAddress: (data) => request('GET', `/Buyer/getBuyerAddress.do?accountName=` + data),
     getAccount: () => request('GET', '/Login/getLimit.do'),
     wxLogin: (data) => request('POST', `/Login/wxLogin.do`, data),
@@ -13,6 +14,8 @@ const API = {
     addOrder: (data) => request('POST',`/Order/addOrder.do`, data),
     selectOrder: (data) => request('GET',`/Order/selectOrder.do`, data), 
     queryOrder: (data) => request('GET',`/Order/queryOrder.do`, data),
+    updateState: (data) => request('POST',`/Order/updateState.do`, data),
+
 };
 module.exports = {
     API: API

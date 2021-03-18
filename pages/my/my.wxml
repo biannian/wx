@@ -1,5 +1,6 @@
-<view>my
-  <navigator url="/pages/Login/Login" hover-class="navigator-hover">登录</navigator>
-  <navigator url="/pages/makeOrder/makeOrder" hover-class="navigator-hover">登录</navigator>
+<view  bindtap="exit" class="userinfo">
+  <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+      
 </view>
-
+<navigator url="/pages/Login/Login" hover-class="navigator-hover">登录</navigator>

@@ -14,7 +14,7 @@
     </view>
     <view class="weui-msg__opr-area">
       <view class="weui-btn-area">
-        <a href="javascript:history.back();" style="margin-top:150px" class="weui-btn weui-btn_primary">确定</a>
+        <a bindtap="toOrder" style="margin-top:150px" class="weui-btn weui-btn_primary">确定</a>
       </view>
     </view>
     <view class="weui-msg__tips-area">

@@ -42,6 +42,11 @@
       }
     ]
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "请点击确定"
+    }
+  },
   "window": {
     "onReachBottomDistance": 50,
     "backgroundTextStyle": "dark",

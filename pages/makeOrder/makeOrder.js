@@ -165,9 +165,10 @@ Page({
                 wx.removeStorage({
                   key: 'shop' + shopId,
                 })
+                var orderId = res.data.result;
                 setTimeout(function () {
                   wx.reLaunch({
-                    url: '../msgSuccess/msgSuccess?money=' + totalMoney
+                    url: '../msgSuccess/msgSuccess?money=' + totalMoney+'&orderId='+orderId
                   })
                 }, 700)  
               } else {
