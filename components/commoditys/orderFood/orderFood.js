@@ -4,8 +4,8 @@ Component({
     shop: {},
     shopId: "",
     img: "",
-    imgOn: false,
-    menuMap: [],
+    imgOn: false, 
+    menuMap:[],
     totalMoney: 0,
     shops: [],
     dialog: false,
@@ -42,18 +42,21 @@ Component({
   },
   observers: {
     'scrollTop': function (scrollTop) {
+      var _this = this;
       var menuMap = this.data.menuMap;
       var menuId = this.data.activeIndex;
       menuMap.forEach(map => {
-        if (map.height <= scrollTop) {
+        var he = map.height-160;
+        if (he <= scrollTop) {
+          // if (map.height <= scrollTop) {
           menuId = map.menuId;
+          _this.setData({
+            imgOn: true,
+            activeIndex: menuId
+          }) 
         }
       })
-      this.setData({
-        imgOn: true,
-        activeIndex: menuId
-      })
-
+      
     },
     'shops': function (shops) {
       var shopId = this.data.shopId;
@@ -70,7 +73,7 @@ Component({
 
     commodityHeight() {
       var menus = [];
-      var menuMaps = [];
+      var menuMaps = []; 
       var commodity = this.data.shop.shop.commodity;
       if (commodity) {
         commodity.forEach(commo => {
@@ -84,8 +87,10 @@ Component({
               menuId: '',
               height: ''
             };
+       
             menuMap.menuId = menu;
             menuMap.height = res.top;
+            // menuMap.height = res.top-160;
             menuMaps.push(menuMap);
           }).exec()
         });
@@ -217,23 +222,24 @@ Component({
       });
     },
     //左侧菜单点击事件
-    menuTap(e) {
-
-      wx.pageScrollTo({
-        scrollTop: 0,
-        duration: 0
+    menuTap(e) {  
+      var _this = this;
+      var menuId = e.currentTarget.id;  
+      var menuMap = _this.data.menuMap;
+      menuMap.forEach(men =>{ 
+        if(  men.menuId  == menuId){
+          wx.pageScrollTo({
+            scrollTop: men.height-150, 
+            duration: 300
+          }) 
+        } 
       })
-      var menuId = e.currentTarget.id;
-      this.setData({
-        activeIndex: menuId
-      });
-      this.createSelectorQuery().select('#shopMenu' + menuId).boundingClientRect((res) => {
-        wx.pageScrollTo({
-          scrollTop: res.top + 3,
-          duration: 300
-        })
-      }).exec()
-
+      setTimeout(function () {
+        _this.setData({
+          activeIndex: menuId
+        }); 
+      }, 400)
+      
     },
     closeImg() {
       this.setData({

@@ -47,7 +47,7 @@
       "desc": "请点击确定"
     }
   },
-  "window": {
+  "window": { 
     "onReachBottomDistance": 50,
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#409EFF",

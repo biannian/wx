@@ -16,7 +16,7 @@
   <view class="address" >
     <text style="font-size:19px;padding:10px"> {{order.shopName}}</text>
     <view wx:for="{{order.shopping}}" wx:key="index" wx:for-item="shopping">
-      <a class="weui-media-box weui-media-box_appmsg">
+      <view class="weui-media-box weui-media-box_appmsg">
         <view class="weui-media-box__hd">
           <image style="height:60px;width:60px;border-radius:10rpx;" src="{{shopping.commodityImg}}"></image>
         </view>
@@ -30,7 +30,7 @@
             ￥{{shopping.commodityNumber * shopping.commodityPrice}}
           </span>
         </view>
-      </a> 
+      </view> 
     </view>
  <button wx:if="{{order.orderState == 1 ||order.orderState == 2 || order.orderState == 3  }}" bindtap="cancel" style="margin-left:5%;font-size:16px;color:#409EFF" size="mini">申请退款</button>
  <button wx:if="{{order.orderState == 5 ||order.orderState == -1 || order.orderState == 4  }}" bindtap="delete" style="margin-left:5%;font-size:16px;color:#409EFF" size="mini">删除订单</button>

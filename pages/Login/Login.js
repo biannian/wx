@@ -53,7 +53,21 @@ Page({
             title: '登录成功',
             icon: "success",
           })
-          let token = res.data.result;
+          let token = res.data.result.token;
+          wx.setStorage({
+            key: "accountName",
+            data: accountName
+          }) 
+          var nickName =res.data.result.wxName;
+          var avatarUrl = res.data.result.wxImage;
+          var userInfo={
+            nickName:nickName,
+            avatarUrl:avatarUrl
+          };
+          wx.setStorage({
+            key: "userInfo",
+            data: userInfo
+          }) 
           wx.setStorage({
             key: "token",
             data: token
@@ -69,8 +83,7 @@ Page({
               wx.reLaunch({
                 url: '/pages/my/my',
               })
-            }, 700)
-
+            }, 700) 
           }
         } else {
           //登录失败
@@ -95,8 +108,7 @@ Page({
             iv: that.data.iv,
           }
           $api.wxLogin(params)
-            .then((resp) => {
-              console.log(resp);
+            .then((resp) => { 
               if (resp.data.result) {
                 if ("" == resp.data.result.token) {
                   wx.redirectTo({
@@ -112,7 +124,14 @@ Page({
                     title: '登录成功',
                     icon: "success",
                   })
-                  console.log(getCurrentPages());
+                  $api.getAccount()
+                  .then((res)=>{
+                    var name = res.data.result.accountName
+                    wx.setStorage({
+                      key: "accountName",
+                      data: name
+                    })
+                  })
                   if (getCurrentPages().length > '1') {
                     setTimeout(function () {
                       wx.navigateBack({

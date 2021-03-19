@@ -63,7 +63,7 @@
   align-items: center;
 }
 .menus{
-  top: 0;
+  top: 220rpx;
   position: fixed;
 }
 .shop{

@@ -1,6 +1,36 @@
-<view  bindtap="exit" class="userinfo">
-  <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-      
+<view class="page">
+  <view class="page__bd">
+    <mp-cells>
+      <mp-cell wx:if="{{userInfo}}">
+        <view slot="title" style="position: relative;margin-right: 10px;">
+          <image src="{{userInfo.avatarUrl}}" style="width: 50px; height: 50px; display: block" />
+        </view>
+        <view>{{userInfo.nickName}}</view>
+        <view style="font-size: 13px;color: #888888;">再累也要记得好好吃饭</view>
+      </mp-cell>
+      <mp-cell bindtap="toLogin" wx:if="{{!userInfo}}">
+
+        <view slot="title" style="position: relative;margin-right: 10px;">
+          <image src="/pages/resources/picture/login.png" style="width: 50px; height: 50px; display: block" />
+        </view>
+        <view style="font-size:22px;color:#606266">请登录</view> 
+      </mp-cell>
+      <mp-cell bindtap="editAddress" link> 
+        <view style="display: inline-block; vertical-align: middle">我的地址</view> 
+      </mp-cell> 
+      <mp-cell link>
+        <view style="display: inline-block; vertical-align: middle">我的收藏</view> 
+      </mp-cell>
+      <mp-cell link>
+        <navigator url="/pages/Login/Login">
+          <view style="display: inline-block; vertical-align: middle">切换账号</view>
+        </navigator>
+      </mp-cell>
+      <mp-cell>
+        <view bindtap="exit" style="display: inline-block; vertical-align: middle">注销账户</view>
+      </mp-cell>
+    </mp-cells>
+  </view>
 </view>
-<navigator url="/pages/Login/Login" hover-class="navigator-hover">登录</navigator>
+<mp-actionSheet bindactiontap="exitLogin" show="{{isExit}}" actions="{{groups}}">
+</mp-actionSheet>
