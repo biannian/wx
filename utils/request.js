@@ -19,7 +19,7 @@ function request(method, url, data) {
                 //请求成功 
                 if (res.statusCode == 200) {
                     resolve(res);
-                } else { 
+                } else {
                     switch (res.statusCode) {
                         case 213:
                             wx.setStorage({
@@ -67,6 +67,18 @@ function request(method, url, data) {
                                         })
                                     }
                                 }
+                            })
+                            break;
+                        case 404:
+                            wx.showModal({
+                                title: '提示',
+                                content: '404 NotFound',
+                            })
+                            break;
+                        case 500:
+                            wx.showModal({
+                                title: '提示',
+                                content: '服务器发生错误',
                             })
                             break;
                     }
