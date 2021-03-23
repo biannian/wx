@@ -15,6 +15,9 @@
         </view>
         <view style="font-size:22px;color:#606266">请登录</view> 
       </mp-cell>
+      <mp-cell link> 
+        <view style="display: inline-block; vertical-align: middle">我的红包</view> 
+      </mp-cell> 
       <mp-cell bindtap="editAddress" link> 
         <view style="display: inline-block; vertical-align: middle">我的地址</view> 
       </mp-cell> 

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "同城跑腿",
+  "navigationBarBackgroundColor": "#409EFF",
+  "usingComponents": {
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-badge": "weui-miniprogram/badge/badge",
+    "mp-actionSheet": "weui-miniprogram/actionsheet/actionsheet"
+  },
+  "enablePullDownRefresh":true
+}

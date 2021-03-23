@@ -1,0 +1,23 @@
+<view class="page"> 
+    <view style="margin-top:50px" class="page__bd"> 
+        <mp-cells > 
+            <mp-cell link bindtap="selectAddress">
+              寄：
+                <view style="display:inline-block; vertical-align: middle"> 
+                <view hidden="{{address}}">从哪里寄</view>   
+                <view> {{address.buyerName}} {{address.buyerTel}} </view> 
+                <view> {{address.buyerAddress}} </view>
+                </view> 
+            </mp-cell>
+            <mp-cell link bindtap="whereToAddress">
+              收：
+                <view style="display: inline-block; vertical-align: middle">
+                 <view  hidden="{{toAddress}}">寄到哪里</view> 
+                 <view> {{toAddress.buyerName}} {{toAddress.buyerTel}} </view> 
+                <view> {{toAddress.buyerAddress}} </view>
+                </view> 
+            </mp-cell>
+        </mp-cells>
+    </view>
+    <button style="margin-top:20px" type="primary">下单</button>
+</view>

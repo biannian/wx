@@ -68,12 +68,10 @@ Page({
               title: '添加成功',
               icon: "none"
             })
-            that.getBuyerAddress();
-
+            that.getBuyerAddress(); 
           })
       }
-    })
-
+    }) 
   },
   //从后台查询买家地址
   getBuyerAddress() {
@@ -89,8 +87,7 @@ Page({
         })
         $api.getBuyerAddress(accountName)
           .then((resp) => {
-            if (resp.data.code == -1) {
-
+            if (resp.data.code == -1) { 
             } else {
               var address = resp.data.result;
               this.setData({
@@ -98,8 +95,7 @@ Page({
               })
             }
           })
-      })
-
+      }) 
   },
   //下单
   buy() {
@@ -113,9 +109,7 @@ Page({
         title: '请选择收货地址',
         icon: "error"
       })
-    }
-
-
+    } 
   },
   closeBuy() {
     this.setData({
@@ -142,8 +136,7 @@ Page({
     }
     $api.login(params)
       .then((res) => {
-        if (res.data.code == '200') {
-
+        if (res.data.code == '200') { 
           let time = formatTime("YYYY-mm-dd HH:MM:SS", new Date());
           let param = {
             buyerAddress: buyerAddress,
@@ -177,8 +170,7 @@ Page({
                   icon: "error"
                 })
               }
-            })
-
+            }) 
         } else {
           wx.showToast({
             title: '密码错误',
@@ -189,6 +181,5 @@ Page({
           })
         }
       })
-  }
-
+  } 
 })

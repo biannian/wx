@@ -12,6 +12,7 @@
     "pages/shops/shops",
     "pages/account/account",
     "pages/makeOrder/makeOrder",
+    "pages/delivery/delivery",
     "components/commoditys/orderFood/orderFood",
     "components/commoditys/comment/comment",
     "components/commoditys/shopInfo/shopInfo"
