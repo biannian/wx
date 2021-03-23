@@ -21,8 +21,7 @@
           <image style="height:60px;width:60px;border-radius:10rpx;" src="{{shopping.commodityImg}}"></image>
         </view>
         <view class="weui-media-box__bd">
-          <view style="font-size:20px;">{{shopping.commodityName}}</view>
-
+          <view style="font-size:20px;">{{shopping.commodityName}}</view> 
           <span style="font-size:14px;color:#909399;">
             × {{shopping.commodityNumber}}
           </span>
