@@ -34,6 +34,7 @@
 
 .top-nav-bar .active {
   /*border-bottom: 2px solid #09bb07;*/
+ font-weight:550;
   border-bottom: 2px solid #409EFF;
 }
 .top-nav-bar-on .on {
@@ -43,5 +44,6 @@
 .top-nav-bar-on .activeon {
   /*border-bottom: 2px solid #09bb07;*/
   margin-top: 140rpx;
+  font-weight:550;
   border-bottom: 2px solid #409EFF;
 }

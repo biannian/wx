@@ -238,7 +238,7 @@ Component({
         _this.setData({
           activeIndex: menuId
         }); 
-      }, 400)
+      }, 350)
       
     },
     closeImg() {

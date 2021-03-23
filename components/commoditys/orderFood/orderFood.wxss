@@ -19,8 +19,7 @@
 
 .placeholder { 
   padding: 0 25px;
-  text-align: center;
-  background-color: #eceef1;
+  text-align: center; 
   height: 2.3em;
   line-height: 2.3em;
   color: var;
@@ -28,7 +27,8 @@
 
 .placeholderon {
   padding:0 20px;
-  background-color: white;
+  font-weight:550;
+  background-color: #ebe6e6;
   height: 2.3em;
   line-height: 2.3em;
 }

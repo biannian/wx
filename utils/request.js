@@ -1,8 +1,10 @@
 const GET = 'GET';
 const POST = 'POST';
 
-// const baseURL = 'http://172.20.10.4:8087';
-const baseURL = 'http://localhost:8087';
+// const baseURL = 'http://236y6m4513.zicp.vip';
+const baseURL = 'http://172.20.10.4:8087';
+// const baseURL = 'http://81.71.15.181:8087';
+// const baseURL = 'http://localhost:8087';
 
 function request(method, url, data) {
     return new Promise(function (resolve, reject) {
@@ -19,7 +21,7 @@ function request(method, url, data) {
                 //请求成功 
                 if (res.statusCode == 200) {
                     resolve(res);
-                } else {
+                } else { 
                     switch (res.statusCode) {
                         case 213:
                             wx.setStorage({
@@ -67,18 +69,6 @@ function request(method, url, data) {
                                         })
                                     }
                                 }
-                            })
-                            break;
-                        case 404:
-                            wx.showModal({
-                                title: '提示',
-                                content: '404 NotFound',
-                            })
-                            break;
-                        case 500:
-                            wx.showModal({
-                                title: '提示',
-                                content: '服务器发生错误',
                             })
                             break;
                     }

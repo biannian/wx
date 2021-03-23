@@ -1,3 +1,16 @@
-<view>
-	商家信息
+ 
+<view class="information">
+	<view style="padding:10px">
+	<text style="font-weight:600">{{shopInfo.shopName}}</text>
+	<text>\n</text>
+	<text>{{shopInfo.shopAddress}}</text>
+	<text>\n</text>
+	<text style="font-weight:600">商家信息</text>
+	<text>\n</text>
+	<text>电话：{{shopInfo.sellerTel}}</text>
+	<text>\n</text>
+	<text>营业时间：{{shopInfo.shopOpenTime}}</text>
+	<text>\n</text>
+	<text>商家品类：{{shopInfo.shopType}}</text>
 </view>
+</view> 

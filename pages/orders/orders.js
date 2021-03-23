@@ -2,27 +2,37 @@
  const formatTime = require('../../utils/util').formatTime;
  Page({
    data: {
+     isLogin:false,
      current: 0,
      orderlist: []
    },
    onPullDownRefresh: function () {
-     this.onLoad();
-   }
-   ,
+    wx.vibrateShort();
+    wx.showNavigationBarLoading(); 
+    this.queryAllShop();
+    wx.stopPullDownRefresh();
+    wx.hideNavigationBarLoading(); //完成停止加载图标 
+   },
+   onShow(){
+    this.queryAllShop();
+   },
    onLoad() {
      this.queryAllShop();
    },
    queryAllShop() {
      var orderBuyerAccount = wx.getStorageSync('accountName');
-     var params = {
-       orderBuyerAccount: orderBuyerAccount
-     }
-     $api.selectOrder(params)
-       .then(res => { 
-         this.setData({
-           orderlist: res.data.result
-         })
-       })
+     if(orderBuyerAccount){ 
+      var params = {
+        orderBuyerAccount: orderBuyerAccount
+      }
+      $api.selectOrder(params)
+        .then(res => { 
+          this.setData({
+            isLogin:true,
+            orderlist: res.data.result
+          })
+        })
+     }  
    },
    toShop(e) {
      wx.navigateTo({

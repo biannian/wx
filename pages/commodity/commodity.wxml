@@ -3,7 +3,7 @@
 	<view
 		style="border-radius: 15rpx;margin:40rpx;background-color:white;margin-top:-15%;z-index:1; position: sticky;border:1px solid #DCDFE6 ">
 		<view style="float:left;width:70%;margin-left:10rpx">
-			<text style="font-size:40rpx;margin-top:10rpx;color:#303133;margin-left:5%">{{shop.shop.shopName}}</text>
+			<text style="font-size:40rpx; font-weight:bold ;margin-top:10rpx;color:#303133;margin-left:5%">{{shop.shop.shopName}}</text>
 			<text>\n</text>
 			<text style="font-size:25rpx;color:#303133;margin-left:5%"> 约30分钟 月售:{{shop.shop.shopSalesVolume}} 起送:{{shop.shop.shopStartPrice}} 运费:{{shop.shop.shopSendPrice}}</text>
 			<text>\n</text>
@@ -25,18 +25,18 @@
 	</view>
 </view> -->
 
-<mp-icon bindtap="back" style="z-index: 3;position: fixed;top:90rpx;margin-left:30rpx" icon="back2" color="#303133"
+<mp-icon bindtap="back" style="z-index: 3;position: fixed;top:100rpx;margin-left:30rpx" icon="back2" color="#303133"
 	size="{{30}}"></mp-icon>
-<mp-icon bindtap="save" style="z-index: 3;position: fixed;top:90rpx;margin-left:500rpx" icon="star"
+<mp-icon bindtap="save" style="z-index: 3;position: fixed;top:100rpx;margin-left:500rpx" icon="star"
 	color="{{saveColor}}" size="{{25}}"></mp-icon>
 <view class="{{scrollTop >=110 ? 'top-nav-on' : 'top-nav'}}">
 	<view class="{{scrollTop >=110 ? 'top-nav-bar-on' : 'top-nav-bar'}}">
 		<view class="{{current == 0 ? 'active' : ''}}{{scrollTop >=110 ? 'on' : ''}}" catchtap="switchSlider"
-			data-index="0">　 点 餐 　</view>
+			data-index="0" >　 点 餐 　</view>
 		<view class="{{current == 1 ? 'active' : ''}}{{scrollTop >=110 ? 'on' : ''}}" catchtap="switchSlider"
-			data-index="1"> 　评 价　 </view>
+			data-index="1" > 　评 价　 </view>
 		<view class="{{current == 2 ? 'active' : ''}}{{scrollTop >=110 ? 'on' : ''}}" catchtap="switchSlider"
-			data-index="2"> 　商 家 　</view>
+			data-index="2"  > 　商 家 　</view>
 	</view>
 </view>
 <view hidden="{{current != 0 }}">
@@ -46,5 +46,5 @@
 	<comment></comment>
 </view>
 <view hidden="{{current != 2 }}">
-	<shopInfo></shopInfo>
+	<shopInfo shopId="{{shopId}}"></shopInfo>
 </view>

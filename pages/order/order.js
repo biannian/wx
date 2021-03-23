@@ -35,7 +35,7 @@ Page({
     })
   },
   cancel(){  
-     var orderId = this.data.order.orderId 
+    var orderId = this.data.order.orderId 
     wx.showModal({
       cancelColor: 'cancelColor',
       title: '退款申请',
@@ -54,6 +54,26 @@ Page({
       }
     })
 
+  },
+  cancelCancel(){
+    var orderId = this.data.order.orderId 
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      title: '取消退款',
+      content: '是否取消退款',
+      success: function (res) {
+        if (res.confirm) { 
+          var param = {
+            orderState: '0', 
+            orderId: orderId
+          }
+          $api.updateState(param)
+            .then((res) => {
+              console.log(res);
+            })
+        }
+      }
+    })
   },
   queryAddress(buyerAddress, shopAddress) {
     var markers = []; 

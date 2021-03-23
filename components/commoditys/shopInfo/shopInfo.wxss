@@ -1,1 +1,6 @@
- 
+.information{
+  border-radius: 15rpx;  
+  padding:10px;
+  border:2px solid white;
+  background-color: white;
+}

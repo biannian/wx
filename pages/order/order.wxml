@@ -21,7 +21,8 @@
           <image style="height:60px;width:60px;border-radius:10rpx;" src="{{shopping.commodityImg}}"></image>
         </view>
         <view class="weui-media-box__bd">
-          <view style="font-size:20px;">{{shopping.commodityName}}</view> 
+          <view style="font-size:20px;">{{shopping.commodityName}}</view>
+
           <span style="font-size:14px;color:#909399;">
             × {{shopping.commodityNumber}}
           </span>
@@ -31,8 +32,9 @@
         </view>
       </view> 
     </view>
- <button wx:if="{{order.orderState == 1 ||order.orderState == 2 || order.orderState == 3  }}" bindtap="cancel" style="margin-left:5%;font-size:16px;color:#409EFF" size="mini">申请退款</button>
+ <button wx:if="{{order.orderState == 1 ||order.orderState == 2 || order.orderState == 3 || order.orderState == 0  }}" bindtap="cancel" style="margin-left:5%;font-size:16px;color:#409EFF" size="mini">申请退款</button>
  <button wx:if="{{order.orderState == 5 ||order.orderState == -1 || order.orderState == 4  }}" bindtap="delete" style="margin-left:5%;font-size:16px;color:#409EFF" size="mini">删除订单</button>
+ <button wx:if="{{order.orderState == -2 }}" bindtap="cancelCancel" style="margin-left:5%;font-size:16px;color:#409EFF" size="mini">取消退款</button>
    <span style="font-size:19px;padding:15px;margin-left:20%"> 
   <text >总计:</text>
   <text style="color:red;"> ￥{{money}}</text> 

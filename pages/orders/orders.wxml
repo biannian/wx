@@ -12,6 +12,11 @@
         <icon type="loading" class="weui-pull__loading"></icon>
         <!--<text>下拉刷新</text>-->
       </view>
+      <view style="text-align:center;margin-top:30%;" wx:if="{{!isLogin}}">
+        <image src="/pages/resources/picture/empty.jpg"></image>
+    <view>    登陆后查看订单</view>
+    <view> <navigator url="/pages/Login/Login"><button size="mini" type="primary">立即登录</button> </navigator> </view>
+    </view>
       <view class=" weui-panel__access" bindchange="changeSlider" style="display:{{current == 0 ? 'block' : 'none'}}">
         <view class="weui-panel__bd">
           <view class="padding-wrap" wx:for="{{orderlist.orders}}" wx:key="index">

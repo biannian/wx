@@ -2,8 +2,10 @@ const request = require('../utils/request').request;
 const API = {
     queryAllShop: () => request('GET', `/shop/queryAll.do`),
     queryShop: (data) => request('GET', `/shop/queryByName.do?shopName=` + data),
+    queryShopInfo: (data) => request('GET', `/shop/queryShopInfo.do`,data),
     queryById: (data) => request('GET', `/shop/queryById.do?shopId=` + data),
     queryBuyerLikeShop: (data) => request('GET', `/shop/queryBuyerLikeShop.do`,data),
+    queryBuyerLikeShopInfo: (data) => request('GET', `/shop/queryBuyerLikeShopInfo.do`,data),
     addBuyerLikeShop: (data) => request('GET', `/shop/addBuyerLikeShop.do`,data),
     deleteBuyerLikeShop: (data) => request('GET', `/shop/deleteBuyerLikeShop.do`,data),
     queryByType: (data) => request('GET', `/shop/queryByType.do?shopTypeId=` + data), 
