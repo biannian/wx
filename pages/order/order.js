@@ -138,15 +138,16 @@ Page({
             });
           },
           fail: function (error) {
+            console.log(error);
             wx.showToast({
               title: '地图加载失败',
               icon:"error"
             }) 
           }
-        })
-      
+        }) 
       },
       fail: function (error) {
+        console.log(error);
         wx.showToast({
           title: '地图加载失败',
           icon:"error"

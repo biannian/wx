@@ -12,7 +12,7 @@ Component({
   let a = {
     shopId:this.data.shopId
   }
- $api.queryShopInfo(a).then((res)=>{ 
+ $api.queryShopInfo(a).then((res)=>{  
    this.setData({
     shopInfo:res.data.result
    })

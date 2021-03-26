@@ -1,5 +1,6 @@
 <view class="page"> 
     <view style="margin-top:50px" class="page__bd"> 
+      
         <mp-cells > 
             <mp-cell link bindtap="selectAddress">
               寄：
@@ -17,7 +18,11 @@
                 <view> {{toAddress.buyerAddress}} </view>
                 </view> 
             </mp-cell>
+            <mp-cell>
+                    <input bindinput="inputChange" class="weui-input" placeholder="请输入要寄送的物品名"/>
+                </mp-cell>
         </mp-cells>
     </view>
-    <button style="margin-top:20px" type="primary">下单</button>
+    <view>预估运费：{{}}</view>
+    <button bindtap="makeErrand" style="margin-top:20px" type="primary">下单</button>
 </view>

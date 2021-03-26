@@ -67,7 +67,7 @@
       </navigator>
     </a>
     <a class="weui-grid" style="padding: 10rpx;width:25%">
-      <navigator url="/pages/delivery/delivery">
+      <navigator url="/pages/errand/errand">
       <image  class="img" src="/pages/resources/picture/paotui.png">
       </image>
       <view class="weui-grid__label">跑腿</view>
