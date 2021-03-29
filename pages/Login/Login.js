@@ -30,14 +30,14 @@ Page({
     if (accountName == "") {
       wx.showToast({
         title: '请输入账户名',
-        icon: "none",
+        icon: "none"
       })
       return;
     }
     if (accountPassword == "") {
       wx.showToast({
         title: '请输入密码',
-        icon: "none",
+        icon: "none"
       })
       return;
     }
@@ -47,11 +47,11 @@ Page({
     }
     $api.login(params)
       .then((res) => {
-        console.log(res);
+       
         if (res.data.code == 200) {
           wx.showToast({
             title: '登录成功',
-            icon: "success",
+            icon: "success"
           })
           let token = res.data.result.token;
           wx.setStorage({
@@ -89,7 +89,7 @@ Page({
           //登录失败
           wx.showToast({
             title: '账户或密码错误',
-            icon: "none",
+            icon: "error"
           })
         }
       })
@@ -101,6 +101,7 @@ Page({
         if (res.code) {
           //发起网络请求
           let params = {
+            limit:'1',
             wxName: that.data.userInfo.nickName,
             wxImage: that.data.userInfo.avatarUrl,
             code: res.code,
@@ -122,7 +123,7 @@ Page({
                   })
                   wx.showToast({
                     title: '登录成功',
-                    icon: "success",
+                    icon: "success"
                   })
                   $api.getAccount()
                   .then((res)=>{

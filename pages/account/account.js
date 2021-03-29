@@ -140,8 +140,7 @@ Page({
                   }) 
                   wx.showToast({
                     title: '提交成功',
-                    icon:"success",
-                    duration:"1000"
+                    icon:"success", 
                   })
                   setTimeout(function () {
                     wx.navigateBack({
@@ -151,18 +150,16 @@ Page({
                 }else{
                   wx.showToast({
                     title: '更新失败，请联系管理员',
-                    icon:"none",
-                    duration:"1000"
+                    icon:"error", 
                   })
                 }
               })
             }
           })
-      }
-     
+      } 
     } else {
       wx.showToast({
-        title: '提交失败',
+        title: '信息未完成不能提交',
         icon: 'none',
         duration: 1000
       })
