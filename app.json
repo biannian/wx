@@ -13,6 +13,8 @@
     "pages/account/account",
     "pages/makeOrder/makeOrder",
     "pages/errand/errand",
+    "rider/index/index",
+    "rider/login/login",
     "components/commoditys/orderFood/orderFood",
     "components/commoditys/comment/comment",
     "components/commoditys/shopInfo/shopInfo"

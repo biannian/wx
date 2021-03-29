@@ -78,7 +78,7 @@
             <text>等{{orderlist.shoppings[index].length}}件商品</text>
           </view>
           <view class="operate">
-            <text class="operate-item pay">确认收货</text>
+            <text class="operate-item pay" catchtap="makeSure">确认收货</text>
           </view>
         </a>
       </view>

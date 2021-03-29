@@ -31,6 +31,11 @@
           <view style="display: inline-block; vertical-align: middle">切换账号</view>
         </navigator>
       </mp-cell>
+      <mp-cell link>
+        <navigator url="/rider/login/login">
+          <view style="display: inline-block; vertical-align: middle">骑手入口</view>
+        </navigator>
+      </mp-cell>
       <mp-cell>
         <view bindtap="exit" style="display: inline-block; vertical-align: middle">注销账户</view>
       </mp-cell>
