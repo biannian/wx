@@ -7,11 +7,11 @@
 </view>
 <view class="container" class="ma-top-120">
   <view class="carts">
-    <view class="weui-pull">
-      <view class="weui-pull__tips">
+    
+      <!-- <view class="weui-pull__tips">
         <icon type="loading" class="weui-pull__loading"></icon>
-        <!--<text>下拉刷新</text>-->
-      </view>
+       <text>下拉刷新</text>
+      </view> -->
       <view style="text-align:center;margin-top:30%;" wx:if="{{!isLogin}}">
         <image src="/pages/resources/picture/empty.jpg"></image>
     <view>    登陆后查看订单</view>
@@ -51,7 +51,7 @@
         </view>
       </view>
     </view>
-  </view>
+ 
   <view style="display:{{current == 1 ? 'block' : 'none'}}"> 
     <view class="weui-panel__bd">
       <view

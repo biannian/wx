@@ -30,6 +30,17 @@
        })
      } 
    },
+   toRider(){ 
+     if(wx.getStorageSync('riderAccount')){
+        wx.redirectTo({
+          url: '/rider/index/index',
+        })
+     }else{
+       wx.redirectTo({
+         url: '/rider/login/login',
+       })
+     }
+   },
    editAddress(){
     wx.chooseAddress({
       success(res) {

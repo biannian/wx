@@ -47,6 +47,7 @@ Page({
     }
     $api.login(params)
       .then((res) => {
+        console.log(res);
         if (res.data.code == 200) {
           wx.showToast({
             title: '登录成功',

@@ -4,8 +4,8 @@ Component({
     shop: {},
     shopId: "",
     img: "",
-    imgOn: false, 
-    menuMap:[],
+    imgOn: false,
+    menuMap: [],
     totalMoney: 0,
     shops: [],
     dialog: false,
@@ -25,7 +25,7 @@ Component({
   ready() {
     this.setData({
       shopId: this.properties.shopId,
-    }) 
+    })
     $api.queryById(this.properties.shopId)
       .then((res) => {
         this.setData({
@@ -46,17 +46,17 @@ Component({
       var menuMap = this.data.menuMap;
       var menuId = this.data.activeIndex;
       menuMap.forEach(map => {
-        var he = map.height-160;
+        var he = map.height - 160;
         if (he <= scrollTop) {
           // if (map.height <= scrollTop) {
           menuId = map.menuId;
           _this.setData({
             imgOn: true,
             activeIndex: menuId
-          }) 
+          })
         }
       })
-      
+
     },
     'shops': function (shops) {
       var shopId = this.data.shopId;
@@ -73,7 +73,7 @@ Component({
 
     commodityHeight() {
       var menus = [];
-      var menuMaps = []; 
+      var menuMaps = [];
       var commodity = this.data.shop.shop.commodity;
       if (commodity) {
         commodity.forEach(commo => {
@@ -87,7 +87,7 @@ Component({
               menuId: '',
               height: ''
             };
-       
+
             menuMap.menuId = menu;
             menuMap.height = res.top;
             // menuMap.height = res.top-160;
@@ -222,24 +222,24 @@ Component({
       });
     },
     //左侧菜单点击事件
-    menuTap(e) {  
+    menuTap(e) {
       var _this = this;
-      var menuId = e.currentTarget.id;  
+      var menuId = e.currentTarget.id;
       var menuMap = _this.data.menuMap;
-      menuMap.forEach(men =>{ 
-        if(  men.menuId  == menuId){
+      menuMap.forEach(men => {
+        if (men.menuId == menuId) {
           wx.pageScrollTo({
-            scrollTop: men.height-150, 
+            scrollTop: men.height - 150,
             duration: 300
-          }) 
-        } 
+          })
+        }
       })
       setTimeout(function () {
         _this.setData({
           activeIndex: menuId
-        }); 
+        });
       }, 350)
-      
+
     },
     closeImg() {
       this.setData({
@@ -270,6 +270,22 @@ Component({
       });
     },
     toBuy() {
+      if (!wx.getStorageSync('accountName')) {
+        wx.showModal({
+          title: '提示',
+          content: '您还尚未登录，请登录后操作',
+          success(res) {
+            if (res.confirm) {
+              wx.redirectTo({
+                url: '/pages/Login/Login'
+              })
+            } else if (res.cancel) {
+
+            }
+          }
+        })
+        return;
+      }
       if (this.data.shops.length == '0') {
         wx.showToast({
           title: '您还未添加商品',

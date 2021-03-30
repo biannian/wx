@@ -21,20 +21,29 @@
       <mp-cell bindtap="editAddress" link> 
         <view style="display: inline-block; vertical-align: middle">我的地址</view> 
       </mp-cell> 
+      <navigator url="/pages/shops/shops">
       <mp-cell link>
-        <navigator url="/pages/shops/shops">
+     
         <view style="display: inline-block; vertical-align: middle">我的收藏</view> 
-        </navigator>
+       
       </mp-cell>
+    </navigator>
+      <navigator url="/pages/Login/Login">
       <mp-cell link>
-        <navigator url="/pages/Login/Login">
+      
           <view style="display: inline-block; vertical-align: middle">切换账号</view>
-        </navigator>
+   
       </mp-cell>
+    </navigator>
+      <navigator url="/pages/accountEdit/accountEdit">
       <mp-cell link>
-        <navigator url="/rider/login/login">
-          <view style="display: inline-block; vertical-align: middle">骑手入口</view>
-        </navigator>
+
+          <view style="display: inline-block; vertical-align: middle">密码修改</view>
+     
+      </mp-cell>
+    </navigator>
+      <mp-cell link bindtap="toRider"> 
+          <view style="display: inline-block; vertical-align: middle">骑手入口</view> 
       </mp-cell>
       <mp-cell>
         <view bindtap="exit" style="display: inline-block; vertical-align: middle">注销账户</view>
