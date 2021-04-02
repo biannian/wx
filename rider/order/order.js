@@ -67,7 +67,7 @@ Page({
             orderState: '0', 
             orderId: orderId
           }
-          $api.updateState(param)
+          $api.riderUpdateState(param)
             .then((res) => {
               console.log(res);
             })
@@ -95,7 +95,7 @@ Page({
           title: res.title,
           latitude: buyerLatitude,
           longitude: buyerLongitude,
-          iconPath: '../resources/picture/buyerAddress.jpg',
+          iconPath: '/pages/resources/picture/buyerAddress.jpg',
           width: 30,
           height: 30,
           callout: {
@@ -123,7 +123,7 @@ Page({
                 title: res.title,
                 latitude: latitude,
                 longitude: longitude,
-                iconPath:'../resources/picture/shopAddress.jpg',
+                iconPath:'/pages/resources/picture/shopAddress.jpg',
                 width: 30,
                 height: 30,
                 callout: {
@@ -162,7 +162,7 @@ Page({
       orderId: Number(orderId)
     }
     $api.queryOrder(params)
-      .then((res) => { 
+      .then((res) => {
         _this.queryAddress(res.data.result.buyerAddress.buyerAddress, res.data.result.shopAddress); 
         var order = res.data.result;
         var money = 0;
@@ -173,6 +173,6 @@ Page({
           money:money,
           order:order
          })
-      }) 
+      })
   },
 })

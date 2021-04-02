@@ -47,8 +47,15 @@ Page({
     }
     $api.login(params)
       .then((res) => {
-        console.log(res);
+      
         if (res.data.code == 200) {
+          if(res.data.result.limit != '2'){
+            wx.showToast({
+              title: '非骑手账户',
+              icon: "error"
+            })
+            return;
+          }
           wx.showToast({
             title: '登录成功',
             icon: "success",

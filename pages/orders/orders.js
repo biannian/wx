@@ -45,6 +45,7 @@
      })
    },
    makeSure(e) {
+     var _this = this;
      wx.showModal({
        cancelColor: 'cancelColor',
        title: '确认收货',
@@ -58,13 +59,13 @@
              orderId: e.currentTarget.id
            }
            $api.updateState(param)
-             .then((res) => {
-               console.log(res);
+             .then(() => {
+              _this.queryAllShop();
              })
          }
        }
      })
-     
+   
    },
    payorder: function (e) {
      var orderid = e.target.dataset.id;

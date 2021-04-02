@@ -23,7 +23,8 @@ const API = {
     selectOrder: (data) => request('GET',`/Order/selectOrder.do`, data), 
     queryOrder: (data) => request('GET',`/Order/queryOrder.do`, data),
     updateState: (data) => request('POST',`/Order/updateState.do`, data),
-
+    riderUpdateState: (data) => request('POST',`/Order/riderUpdateState.do`, data),
+    
 };
 module.exports = {
     API: API

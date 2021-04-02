@@ -46,9 +46,22 @@ Page({
       accountName: accountName
     }
     $api.login(params)
-      .then((res) => {
-       
-        if (res.data.code == 200) {
+      .then((res) => {  
+        if (res.data.result) {
+          if(res.data.code == '403'){
+            wx.showToast({
+              title: '账户被禁用',
+              icon: "error"
+            })
+            return;
+          } 
+          if(res.data.result.limit != '1'){
+            wx.showToast({
+              title: '非用户账户',
+              icon: "error"
+            })
+            return;
+          }
           wx.showToast({
             title: '登录成功',
             icon: "success"
@@ -109,8 +122,8 @@ Page({
             iv: that.data.iv,
           }
           $api.wxLogin(params)
-            .then((resp) => { 
-              if (resp.data.result) {
+            .then((resp) => {  
+              if (resp.data.result) { 
                 if ("" == resp.data.result.token) {
                   wx.redirectTo({
                     url: '/pages/account/account?openId=' + resp.data.result.openId,

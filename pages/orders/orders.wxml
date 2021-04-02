@@ -28,7 +28,7 @@
               <text wx:if="{{orderlist.orders[index].orderState == -1}}">已取消</text>
               <text wx:if="{{orderlist.orders[index].orderState == 0}}">已下单</text>
               <text wx:if="{{orderlist.orders[index].orderState == 1}}">商家已接单</text>
-              <text wx:if="{{orderlist.orders[index].orderState == 2}}">骑手已取到</text>
+              <text wx:if="{{orderlist.orders[index].orderState == 2}}">已分配骑手</text>
               <text wx:if="{{orderlist.orders[index].orderState == 3}}">待收货</text>
               <text wx:if="{{orderlist.orders[index].orderState == 4}}">待评价</text>
               <text wx:if="{{orderlist.orders[index].orderState == 5}}">已完成</text>
@@ -61,10 +61,11 @@
           bindtap="toShop">{{orderlist.shops[orderlist.orders[index].shopId]}} </text>
         <text bindtap="toShop" style="color:#909399;font-size:23px">></text>
         <view style="float:right;">
+          <text wx:if="{{orderlist.orders[index].orderState == -2}}">正在退款</text>
           <text wx:if="{{orderlist.orders[index].orderState == -1}}">已取消</text>
           <text wx:if="{{orderlist.orders[index].orderState == 0}}">已下单</text>
           <text wx:if="{{orderlist.orders[index].orderState == 1}}">商家已接单</text>
-          <text wx:if="{{orderlist.orders[index].orderState == 2}}">骑手已取到</text>
+          <text wx:if="{{orderlist.orders[index].orderState == 2}}">已分配骑手</text>
           <text wx:if="{{orderlist.orders[index].orderState == 3}}">待收货</text>
           <text wx:if="{{orderlist.orders[index].orderState == 4}}">待评价</text>
           <text wx:if="{{orderlist.orders[index].orderState == 5}}">已完成</text>
@@ -78,7 +79,7 @@
             <text>等{{orderlist.shoppings[index].length}}件商品</text>
           </view>
           <view class="operate">
-            <text class="operate-item pay" catchtap="makeSure">确认收货</text>
+            <text  id="{{orderlist.orders[index].orderId}}" class="operate-item pay" catchtap="makeSure">确认收货</text>
           </view>
         </a>
       </view>
@@ -92,10 +93,11 @@
           bindtap="toShop">{{orderlist.shops[orderlist.orders[index].shopId]}} </text>
         <text bindtap="toShop" style="color:#909399;font-size:23px">></text>
         <view style="float:right;">
+          <text wx:if="{{orderlist.orders[index].orderState == -2}}">正在退款</text>
           <text wx:if="{{orderlist.orders[index].orderState == -1}}">已取消</text>
           <text wx:if="{{orderlist.orders[index].orderState == 0}}">已下单</text>
           <text wx:if="{{orderlist.orders[index].orderState == 1}}">商家已接单</text>
-          <text wx:if="{{orderlist.orders[index].orderState == 2}}">骑手已取到</text>
+          <text wx:if="{{orderlist.orders[index].orderState == 2}}">已分配骑手</text>
           <text wx:if="{{orderlist.orders[index].orderState == 3}}">待收货</text>
           <text wx:if="{{orderlist.orders[index].orderState == 4}}">待评价</text>
           <text wx:if="{{orderlist.orders[index].orderState == 5}}">已完成</text>
@@ -109,7 +111,7 @@
             <text>等{{orderlist.shoppings[index].length}}件商品</text>
           </view>
           <view class="operate">
-            <text class="operate-item pay">去评价</text>
+            <text  id="{{orderlist.orders[index].orderId}}" class="operate-item pay">去评价</text>
           </view>
         </a>
       </view>

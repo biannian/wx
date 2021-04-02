@@ -172,6 +172,13 @@ Page({
               }
             }) 
         } else {
+          if(res.data.code == '403'){
+            wx.showToast({
+              title: '账户被禁用',
+              icon: "error"
+            })
+            return;
+          }
           wx.showToast({
             title: '密码错误',
             icon: "error"
