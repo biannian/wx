@@ -44,7 +44,7 @@
               <view class="operate">
                 <text wx:if="{{orderlist.orders[index].orderState != 4 && orderlist.orders[index].orderState != 5 && orderlist.orders[index].orderState != -1 && orderlist.orders[index].orderState != -2 }}"
                   class="operate-item pay" id="{{orderlist.orders[index].orderId}}" catchtap="makeSure">确认收货</text>
-                <text wx:if="{{orderlist.orders[index].orderState == 4 }}" id="{{orderlist.orders[index].orderId}}" class="operate-item pay"> 去评价 </text>
+                <text wx:if="{{orderlist.orders[index].orderState == 4 }}" id="{{orderlist.orders[index].orderId}}"  catchtap="toComment" class="operate-item pay"> 去评价 </text>
               </view>
             </a>
           </view>
@@ -111,7 +111,7 @@
             <text>等{{orderlist.shoppings[index].length}}件商品</text>
           </view>
           <view class="operate">
-            <text  id="{{orderlist.orders[index].orderId}}" class="operate-item pay">去评价</text>
+            <text  catchtap="toComment" id="{{orderlist.orders[index].orderId}}" class="operate-item pay">去评价</text>
           </view>
         </a>
       </view>

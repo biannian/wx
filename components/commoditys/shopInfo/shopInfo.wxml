@@ -9,7 +9,7 @@
 	<text>\n</text>
 	<text>电话：{{shopInfo.sellerTel}}</text>
 	<text>\n</text>
-	<text>营业时间：{{shopInfo.shopOpenTime}}</text>
+	<text>营业时间：{{shopInfo.shopOpenTime}}-{{shopInfo.shopCloseTime}}</text>
 	<text>\n</text>
 	<text>商家品类：{{shopInfo.shopType}}</text>
 </view>

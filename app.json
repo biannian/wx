@@ -15,6 +15,7 @@
     "pages/accountEdit/accountEdit",
     "rider/accountEdit/accountEdit",
     "pages/makeOrder/makeOrder",
+    "pages/makeComment/makeComment",
     "pages/errand/errand",
     "rider/order/order",
     "rider/index/index",

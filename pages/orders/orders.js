@@ -19,6 +19,11 @@
    onLoad() {
      this.queryAllShop();
    },
+   toComment(e){
+    wx.navigateTo({
+      url: '/pages/makeComment/makeComment?orderId=' + e.currentTarget.id,
+    })
+   },
    queryAllShop() {
      var orderBuyerAccount = wx.getStorageSync('accountName');
      if(orderBuyerAccount){ 
@@ -64,8 +69,7 @@
              })
          }
        }
-     })
-   
+     }) 
    },
    payorder: function (e) {
      var orderid = e.target.dataset.id;
