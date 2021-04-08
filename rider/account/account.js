@@ -231,15 +231,14 @@ Page({
                     icon:"success", 
                   })
                   setTimeout(function () {
-                    wx.navigateBack({
-                      delta: 2
-                  })
+                   wx.redirectTo({
+                     url: '/rider/index/index',
+                   })
                   }, 700) 
                 }else{
                   wx.showToast({
                     title: '更新失败，请联系管理员',
-                    icon:"error",
-                   
+                    icon:"error", 
                   })
                 }
               })

@@ -1,7 +1,9 @@
 {
   "navigationBarTitleText": "订单",
   "navigationBarBackgroundColor": "#409EFF",
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-icon": "weui-miniprogram/icon/icon"
+  },
   "enablePullDownRefresh":true
 }
  

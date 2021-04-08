@@ -46,17 +46,30 @@
           <span style="font-size:14px;color:#909399;">
             × {{shops.shoppingNumber}}
           </span>
-          <span style="float:right">
+          <span style="margin-left:70%">
             ￥{{shops.shoppingNumber * shops.commodityPrice}}
           </span>
         </view>
       </a>
     </view>
+    <view style="padding:20rpx 0 20rpx 30rpx;display: inline-block;">
+      配送费
+    </view>
+    <span style="margin-left:64%">￥ {{shopSendPrice}}</span>
+    <text>\n</text>
+    <a bindtap="chooseCoupon">
+    <view style="padding:20rpx 0 20rpx 30rpx;display: inline-block;">
+      红包/优惠券
+    </view>
+    <span style="margin-left:52%;color:red">-￥ {{shopSendPrice}} </span> 
+    <mp-icon icon="arrow" color="red" size="{{11}}"></mp-icon>
+  </a>
   </view>
   <view class="tips">
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_small-appmsg">
         <view class="weui-cells">
+ 
           <a class="weui-cell weui-cell_active weui-cell_access weui-cell_example">
             <view class="weui-cell__bd weui-cell_primary">
               <view bindtap="addTips">
@@ -102,7 +115,7 @@
     <view class="weui-dialog__bd" style="font-size:20px;color:black;"> ￥ {{totalMoney}} </view>
     <view class="weui-dialog__ft">
       <span> <input style="border:1px solid black;margin:10px;width:80%" placeholder="请输入密码" type="password"
-        bindinput="pwd"   /></span>
+          bindinput="pwd" /></span>
       <span> <a style="margin-top:-20%" class="weui-dialog__btn weui-dialog__btn_primary"
           bindtap="checkPwd">支付</a></span>
     </view>

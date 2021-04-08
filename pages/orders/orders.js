@@ -3,7 +3,7 @@
  Page({
    data: {
      isLogin:false,
-     current: 0,
+     current: 0, 
      orderlist: []
    },
    onPullDownRefresh: function () {
@@ -25,14 +25,14 @@
     })
    },
    queryAllShop() {
-     var orderBuyerAccount = wx.getStorageSync('accountName');
+     var orderBuyerAccount = wx.getStorageSync('accountName'); 
      if(orderBuyerAccount){ 
       var params = {
         orderBuyerAccount: orderBuyerAccount
       }
       $api.selectOrder(params)
         .then(res => { 
-          this.setData({
+          this.setData({ 
             isLogin:true,
             orderlist: res.data.result
           })

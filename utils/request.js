@@ -9,6 +9,9 @@ const baseURL = 'http://localhost:8087';
 
 function request(method, url, data) {
     return new Promise(function (resolve, reject) {
+        wx.showLoading({
+            title: '加载中',
+          })
         let header = {
             'token': wx.getStorageSync('token') ? wx.getStorageSync('token') : "" ,
             'content-type': 'application/json',
@@ -20,6 +23,7 @@ function request(method, url, data) {
             header: header,
             success(res) {
                 //请求成功 
+                wx.hideLoading();
                 if (res.statusCode == 200) {
                     resolve(res);
                 } else { 
@@ -82,6 +86,7 @@ function request(method, url, data) {
                 }
             },
             fail(err) {
+                wx.hideLoading();
                 wx.showToast({
                     title: '请求数据失败',
                     icon: 'none',
