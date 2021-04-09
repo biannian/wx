@@ -5,15 +5,15 @@ const POST = 'POST';
 // const baseURL = 'http://172.20.10.4:8087';
 // const baseURL = 'http://121.5.222.148:8087';
 const baseURL = 'http://localhost:8087';
-// const baseURL = 'http://chat.biannian.top:8087/';
+// const baseURL = 'http://chat.biannian.top:8087';
 
 function request(method, url, data) {
     return new Promise(function (resolve, reject) {
         wx.showLoading({
             title: '加载中',
-          })
+        })
         let header = {
-            'token': wx.getStorageSync('token') ? wx.getStorageSync('token') : "" ,
+            'token': wx.getStorageSync('token') ? wx.getStorageSync('token') : "",
             'content-type': 'application/json',
         };
         wx.request({
@@ -26,7 +26,7 @@ function request(method, url, data) {
                 wx.hideLoading();
                 if (res.statusCode == 200) {
                     resolve(res);
-                } else { 
+                } else {
                     switch (res.statusCode) {
                         case 213:
                             wx.setStorage({
@@ -76,12 +76,18 @@ function request(method, url, data) {
                                 }
                             })
                             break;
-                            case 404:
-                                wx.showToast({
-                                  title: '404 NotFound',
-                                  icon:"error"
-                                }) 
-                                break;
+                        case 404:
+                            wx.showToast({
+                                title: '404 NotFound',
+                                icon: "error"
+                            })
+                            break;
+                        case 500:
+                            wx.showToast({
+                                title: '服务器出错',
+                                icon: "error"
+                            })
+                            break; 
                     }
                 }
             },

@@ -75,16 +75,7 @@ Page({
   },
   //从后台查询买家地址
   getBuyerAddress() {
-    $api.getAccount()
-      .then((res) => {
-        var accountName = res.data.result.accountName;
-        this.setData({
-          buyerAccountName: accountName
-        })
-        wx.setStorage({
-          data: accountName,
-          key: 'accountName',
-        })
+        var accountName = wx.getStorageSync('accountName');
         $api.getBuyerAddress(accountName)
           .then((resp) => {
             if (resp.data.code == -1) { 
@@ -95,7 +86,7 @@ Page({
               })
             }
           })
-      }) 
+      
   },
   //下单
   buy() {
