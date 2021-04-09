@@ -94,9 +94,9 @@
        orderState: this.data.orderState,
        orderRiderAccount: riderAccount
      } 
-     $api.queryOrder(a).then((res) => { 
+     $api.queryOrder(a).then((res) => {  
        this.setData({
-         order: res.data.result
+         order: res.data.result.reverse()
        })
      })
    },

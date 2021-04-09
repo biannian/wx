@@ -31,10 +31,12 @@
         orderBuyerAccount: orderBuyerAccount
       }
       $api.selectOrder(params)
-        .then(res => { 
+        .then(res => {  
+          var orderlist = res.data.result;
+          orderlist.orders.reverse();
           this.setData({ 
             isLogin:true,
-            orderlist: res.data.result
+            orderlist: orderlist
           })
         })
      }  
