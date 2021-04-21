@@ -12,75 +12,71 @@
       </form>
     </view>
   </view>
-   <view class="weui-grids" style="margin-top:10px">
+  <view class="weui-grids" style="margin-top:10px">
     <a class="weui-grid" wx:key="id" wx:for="4" style="padding: 10rpx;width:25%">
       <navigator url="/pages/shops/shops?shopTypeId=1">
-      <view>
-        <image class="img" src="/pages/resources/picture/food.png">
-        </image>
-      </view>
-      <view class="weui-grid__label">美食</view>
+        <view>
+          <image class="img" src="/pages/resources/picture/food.png">
+          </image>
+        </view>
+        <view class="weui-grid__label">美食</view>
       </navigator>
     </a>
     <a class="weui-grid" style="padding:10rpx;width:25%">
       <navigator url="/pages/shops/shops?shopTypeId=2">
-      <view>
-        <image  class="img" src="/pages/resources/picture/naicha.png">
-        </image>
-        <!-- <image style="width:100%;height:100%" src="/images/naicha.jpg" alt></image> -->
-      </view>
-      <view class="weui-grid__label">奶茶</view>
+        <view>
+          <image class="img" src="/pages/resources/picture/naicha.png">
+          </image>
+        </view>
+        <view class="weui-grid__label">奶茶</view>
       </navigator>
     </a>
     <a class="weui-grid" style="padding: 10rpx;width:25%">
       <navigator url="/pages/shops/shops?shopTypeId=3">
-      <view>
-        <image  class="img" src="/pages/resources/picture/tianpin.png">
-        </image>
-        <!-- <image style="width:100%;height:100%" src="/images/dagao.jpg" alt></image> -->
-      </view>
-      <view class="weui-grid__label">甜品</view>
+        <view>
+          <image class="img" src="/pages/resources/picture/tianpin.png">
+          </image>
+        </view>
+        <view class="weui-grid__label">甜品</view>
       </navigator>
     </a>
     <a class="weui-grid" style="padding: 10rpx;width:25%">
       <navigator url="/pages/shops/shops?shopTypeId=4">
-      <view>
-        <image  class="img" src="/pages/resources/picture/shuiguo.png">
-        </image>
-        <!-- <image style="width:100%;height:100%" src="/images/shuiguo.jpg"></image> -->
-      </view>
-      <view class="weui-grid__label">水果</view>
+        <view>
+          <image class="img" src="/pages/resources/picture/shuiguo.png">
+          </image>
+        </view>
+        <view class="weui-grid__label">水果</view>
       </navigator>
     </a>
     <a class="weui-grid" style="padding: 10rpx;width:25%">
       <navigator url="/pages/shops/shops?shopTypeId=5">
-      <image class="img" src="/pages/resources/picture/chaoshi.png">
-      </image>
-      <view class="weui-grid__label">商超</view>
+        <image class="img" src="/pages/resources/picture/chaoshi.png">
+        </image>
+        <view class="weui-grid__label">商超</view>
       </navigator>
     </a>
     <a class="weui-grid" style="padding: 10rpx;width:25%">
       <navigator url="/pages/shops/shops?shopTypeId=6">
-      <image  class="img" src="/pages/resources/picture/shushi.png">
-      </image>
-      <view class="weui-grid__label">熟食</view>
+        <image class="img" src="/pages/resources/picture/shushi.png">
+        </image>
+        <view class="weui-grid__label">熟食</view>
       </navigator>
     </a>
     <a class="weui-grid" style="padding: 10rpx;width:25%">
       <navigator url="/pages/errand/errand">
-      <image  class="img" src="/pages/resources/picture/paotui.png">
-      </image>
-      <view class="weui-grid__label">跑腿</view>
+        <image class="img" src="/pages/resources/picture/paotui.png">
+        </image>
+        <view class="weui-grid__label">跑腿</view>
       </navigator>
     </a>
     <a class="weui-grid" style="padding: 10rpx; width:25%">
       <navigator url="/pages/shops/shops?shopTypeId=8">
-      <view>
-        <image  class="img" src="/pages/resources/picture/yiyao.png">
-        </image>
-        <!-- <image src="/images/shuiguo.jpg" alt></image> -->
-      </view>
-      <view class="weui-grid__label">医药</view>
+        <view>
+          <image class="img" src="/pages/resources/picture/yiyao.png">
+          </image>
+        </view>
+        <view class="weui-grid__label">医药</view>
       </navigator>
     </a>
   </view>
@@ -88,30 +84,30 @@
     <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500">
       <block wx:for="123" wx:key="*this">
         <swiper-item>
-          <image style="width:100%;height:100%;border-radius: 10rpx;" src="{{images[index]}}"></image> 
+          <image style="width:100%;height:100%;border-radius: 10rpx;" src="{{images[index]}}"></image>
           <view class="swiper-item {{item}}"></view>
         </swiper-item>
       </block>
     </swiper>
-  </view> 
+  </view>
   <view style="margin-top:10px" class="weui-panel__bd" wx:for="{{shops}}" wx:key="index" wx:for-item="shop">
     <navigator url="/pages/commodity/commodity?shopId={{shop.shopId}}">
-    <a class="weui-media-box weui-media-box_appmsg"> 
-      <view class="weui-media-box__hd">
-        <image style="height:90px;width:90px;margin-top:-15px;border-radius: 10rpx;" src="{{shop.shopImg}}"></image>
-      </view> 
-      <view class="weui-media-box__bd">
-        <h4 style="font-size:20px;margin-left:30px">{{shop.shopName}}</h4>
-        <view class="weui-media-box__desc">
-          <text style="font-size:16px;color:red;margin-left:30px">{{shop.shopScore}}分</text>
-          <text style="margin-left:20px">销量:{{shop.shopSalesVolume}}</text>
+      <a class="weui-media-box weui-media-box_appmsg">
+        <view class="weui-media-box__hd">
+          <image style="height:90px;width:90px;margin-top:-15px;border-radius: 10rpx;" src="{{shop.shopImg}}"></image>
         </view>
-        <view class="weui-media-box__desc">
-          <text style="margin-left:30px">起送:{{shop.shopStartPrice}}￥</text>
-          <text style="margin-left:10px"> 配送:{{shop.shopSendPrice}}￥</text>
+        <view class="weui-media-box__bd">
+          <h4 style="font-size:20px;margin-left:30px">{{shop.shopName}}</h4>
+          <view class="weui-media-box__desc">
+            <text style="font-size:16px;color:red;margin-left:30px">{{shop.shopScore}}分</text>
+            <text style="margin-left:20px">销量:{{shop.shopSalesVolume}}</text>
+          </view>
+          <view class="weui-media-box__desc">
+            <text style="margin-left:30px">起送:{{shop.shopStartPrice}}￥</text>
+            <text style="margin-left:10px"> 配送:{{shop.shopSendPrice}}￥</text>
+          </view>
         </view>
-      </view>
-    </a>
+      </a>
     </navigator>
-  </view> 
+  </view>
 </view>

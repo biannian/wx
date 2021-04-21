@@ -14,66 +14,32 @@ Page({
     this.mapCtx = wx.createMapContext('myMap');
     this.queryOrder(options.orderId)
   },
-  delete(){
-    var orderId = this.data.order.orderId 
-    wx.showModal({
-      cancelColor: 'cancelColor',
-      title: '删除订单',
-      content: '删除后无法再查看此订单，是否要继续',
-      success: function (res) {
-        if (res.confirm) { 
-          var param = {
-            orderState: '-2', 
-            orderId: orderId
-          }
-          $api.updateState(param)
-            .then((res) => {
-              console.log(res);
-            })
-        }
-      }
-    })
-  },
-  cancel(){  
-    var orderId = this.data.order.orderId 
-    wx.showModal({
-      cancelColor: 'cancelColor',
-      title: '退款申请',
-      content: '发起退款后无法再继续操作订单，是否要继续',
-      success: function (res) {
-        if (res.confirm) { 
-          var param = {
-            orderState: '-2', 
-            orderId: orderId
-          }
-          $api.updateState(param)
-            .then((res) => {
-              console.log(res);
-            })
-        }
-      }
-    })
-
-  },
-  cancelCancel(){
-    var orderId = this.data.order.orderId 
-    wx.showModal({
-      cancelColor: 'cancelColor',
-      title: '取消退款',
-      content: '是否取消退款',
-      success: function (res) {
-        if (res.confirm) { 
-          var param = {
-            orderState: '0', 
-            orderId: orderId
-          }
-          $api.riderUpdateState(param)
-            .then((res) => {
-              console.log(res);
-            })
-        }
-      }
-    })
+  isArrive(e){
+    var _this = this;
+   wx.showModal({
+     cancelColor: 'cancelColor',
+     title: '确认送达',
+     content: '是否已送达',
+     success: function (res) {
+       if (res.confirm) {
+         let time = formatTime("YYYY-mm-dd HH:MM:SS", new Date());
+         var param = {
+           orderState: '3',
+           orderRiderTime1: time,
+           orderId: order.orderId
+         }
+         $api.updateState(param)
+           .then((res) => {
+             if(res.data.result == '1'){
+               wx.showToast({
+                 icon:"success"
+               })
+               _this.queryOrder();
+             }
+           })
+       }
+     }
+   })
   },
   queryAddress(buyerAddress, shopAddress) {
     var markers = []; 

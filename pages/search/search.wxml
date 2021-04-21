@@ -1,11 +1,3 @@
-<!-- <view class="top">
-  <view class="topsearch">
-    <view class="frame">
-      <input value="{{shoopingtext}}" bindinput="shoppinginput"></input>
-    </view>
-    <text bindtap="search">搜索</text>
-  </view>
-</view> -->
 
 <view class="page__bd">
   <view style="background-color:#409EFF" class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}"

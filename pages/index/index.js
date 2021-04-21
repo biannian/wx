@@ -1,6 +1,5 @@
   
  const $api = require('../../api/api').API;
-
 Page({ 
     onShareAppMessage() {
         return {
@@ -27,7 +26,6 @@ Page({
   onLoad: function (options) {   
     this.queryAllShop();
   },
- 
   queryAllShop(){ 
     $api.queryAllShop()
     .then(res =>{ 
@@ -41,6 +39,4 @@ Page({
         url:"/pages/search/search"
     })
   }
-
-
 })

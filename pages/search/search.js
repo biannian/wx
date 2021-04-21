@@ -16,7 +16,8 @@ Page({
       key: 'historyArray',
       success (res) {
         _this.setData({
-          newArray:res.data
+          newArray:res.data,
+          historyArray:res.data
         }) 
       }
     })
