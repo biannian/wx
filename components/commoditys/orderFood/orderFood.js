@@ -70,7 +70,6 @@ Component({
     }
   },
   methods: {
-
     commodityHeight() {
       var menus = [];
       var menuMaps = [];

@@ -58,18 +58,17 @@
     <span style="margin-left:64%">￥ {{shopSendPrice}}</span>
     <text>\n</text>
     <a bindtap="chooseCoupon">
-    <view style="padding:20rpx 0 20rpx 30rpx;display: inline-block;">
-      红包/优惠券
-    </view>
-    <span style="margin-left:52%;color:red">-￥ {{shopSendPrice}} </span> 
-    <mp-icon icon="arrow" color="red" size="{{11}}"></mp-icon>
-  </a>
+      <view style="padding:20rpx 0 20rpx 30rpx;display: inline-block;">
+        红包/优惠券
+      </view>
+      <span style="margin-left:52%;color:red">-￥ {{shopSendPrice}} </span>
+      <mp-icon icon="arrow" color="red" size="{{11}}"></mp-icon>
+    </a>
   </view>
   <view class="tips">
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_small-appmsg">
-        <view class="weui-cells">
- 
+        <view class="weui-cells"> 
           <a class="weui-cell weui-cell_active weui-cell_access weui-cell_example">
             <view class="weui-cell__bd weui-cell_primary">
               <view bindtap="addTips">

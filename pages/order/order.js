@@ -22,13 +22,18 @@ Page({
       content: '删除后无法再查看此订单，是否要继续',
       success: function (res) {
         if (res.confirm) { 
-          var param = {
-            orderState: '-2', 
+          var param = { 
             orderId: orderId
           }
-          $api.updateState(param)
+          $api.deleteOrder(param)
             .then((res) => {
-              console.log(res);
+         
+              if(res.data.result == 1){
+                wx.showToast({
+                  title: '删除成功',
+                  icon:'success'
+                })
+              }
             })
         }
       }
@@ -71,9 +76,10 @@ Page({
             .then((res) => {
               console.log(res);
             })
-        }
-      }
+        } 
+      } 
     })
+
   },
   queryAddress(buyerAddress, shopAddress) {
     var markers = []; 

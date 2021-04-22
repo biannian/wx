@@ -23,8 +23,7 @@
             <a style="font-size:18px" id="{{orderlist.orders[index].shopId}}"
               bindtap="toShop">{{orderlist.shops[orderlist.orders[index].shopId]}}
               <mp-icon icon="arrow" color="#303133" size="{{15}}"></mp-icon>
-            </a>
-            
+            </a> 
             <view style="float:right;">
               <text wx:if="{{orderlist.orders[index].orderState == -2}}">正在退款</text>
               <text wx:if="{{orderlist.orders[index].orderState == -1}}">已取消</text>

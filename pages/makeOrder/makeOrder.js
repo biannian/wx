@@ -69,27 +69,25 @@ Page({
               title: '添加成功',
               icon: "none"
             })
-            that.getBuyerAddress(); 
+            that.getBuyerAddress();
           })
       }
-    }) 
+    })
   },
   //从后台查询买家地址
   getBuyerAddress() {
-        var accountName = wx.getStorageSync('accountName'); 
-      
-        $api.getBuyerAddress(accountName)
-          .then((resp) => {
-            if (resp.data.code == -1) { 
-            } else {
-              var address = resp.data.result;
-              this.setData({
-                buyerAccountName:accountName,
-                buyerAddress: address
-              })
-            }
+    var accountName = wx.getStorageSync('accountName');
+
+    $api.getBuyerAddress(accountName)
+      .then((resp) => {
+        if (resp.data.code == -1) {} else {
+          var address = resp.data.result;
+          this.setData({
+            buyerAccountName: accountName,
+            buyerAddress: address
           })
-      
+        }
+      })
   },
   //下单
   buy() {
@@ -103,7 +101,7 @@ Page({
         title: '请选择收货地址',
         icon: "error"
       })
-    } 
+    }
   },
   closeBuy() {
     this.setData({
@@ -130,7 +128,7 @@ Page({
     }
     $api.login(params)
       .then((res) => {
-        if (res.data.code == '200') { 
+        if (res.data.code == '200') {
           let time = formatTime("YYYY-mm-dd HH:MM:SS", new Date());
           let param = {
             buyerAddress: buyerAddress,
@@ -155,18 +153,18 @@ Page({
                 var orderId = res.data.result;
                 setTimeout(function () {
                   wx.reLaunch({
-                    url: '../msgSuccess/msgSuccess?money=' + totalMoney+'&orderId='+orderId
+                    url: '../msgSuccess/msgSuccess?money=' + totalMoney + '&orderId=' + orderId
                   })
-                }, 700)  
+                }, 700)
               } else {
                 wx.showToast({
                   title: '支付失败',
                   icon: "error"
                 })
               }
-            }) 
+            })
         } else {
-          if(res.data.code == '403'){
+          if (res.data.code == '403') {
             wx.showToast({
               title: '账户被禁用',
               icon: "error"
@@ -182,5 +180,5 @@ Page({
           })
         }
       })
-  } 
+  }
 })

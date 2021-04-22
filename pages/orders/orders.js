@@ -33,7 +33,10 @@
       $api.selectOrder(params)
         .then(res => {  
           var orderlist = res.data.result;
+          console.log(orderlist);
           orderlist.orders.reverse();
+          orderlist.shoppings.reverse();
+          
           this.setData({ 
             isLogin:true,
             orderlist: orderlist
@@ -42,11 +45,13 @@
      }  
    },
    toShop(e) {
+    
      wx.navigateTo({
        url: '/pages/commodity/commodity?shopId=' + e.currentTarget.id,
      })
    },
    toOrder(e) {
+    console.log(e.currentTarget.id);
      wx.navigateTo({
        url: '/pages/order/order?orderId=' + e.currentTarget.id,
      })
