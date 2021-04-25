@@ -61,8 +61,7 @@ Page({
           buyerSex: 1,
           buyerAddress: res.provinceName + res.cityName + res.countyName + res.detailInfo,
           buyerTel: res.telNumber
-        }
-        console.log(addressMessage);
+        } 
         $api.updateAddress(addressMessage)
           .then((response) => {
             wx.showToast({
@@ -76,8 +75,7 @@ Page({
   },
   //从后台查询买家地址
   getBuyerAddress() {
-    var accountName = wx.getStorageSync('accountName');
-
+    var accountName = wx.getStorageSync('accountName'); 
     $api.getBuyerAddress(accountName)
       .then((resp) => {
         if (resp.data.code == -1) {} else {

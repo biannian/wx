@@ -102,25 +102,26 @@
    },
    switchSlider(e) {
      this.setData({
-       current: e.target.dataset.index
+       current: e.target.dataset.index,
+       orderState:Number(e.target.dataset.index) + 1
      }) 
-     switch (e.target.dataset.index) {
-       case '0': 
-       this.setData({
-         orderState:'1'
-       })
-         break;
-       case '1':
-        this.setData({
-          orderState:'2'
-        })
-         break;
-       case '2':
-        this.setData({
-          orderState:'3'
-        })
-         break; 
-     }
+    //  switch (e.target.dataset.index) {
+    //    case '0': 
+    //    this.setData({
+    //      orderState:'1'
+    //    })
+    //      break;
+    //    case '1':
+    //     this.setData({
+    //       orderState:'2'
+    //     })
+    //      break;
+    //    case '2':
+    //     this.setData({
+    //       orderState:'3'
+    //     })
+    //      break; 
+    //  }
     this.queryOrder(); 
    }, 
    exitLogin() {

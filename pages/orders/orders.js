@@ -32,11 +32,9 @@
       }
       $api.selectOrder(params)
         .then(res => {  
-          var orderlist = res.data.result;
-          console.log(orderlist);
-          orderlist.orders.reverse();
-          orderlist.shoppings.reverse();
-          
+          var orderlist = res.data.result; 
+          orderlist.orders.reverse();//将数组倒序，把最新添加的订单排到最上方
+          orderlist.shoppings.reverse(); 
           this.setData({ 
             isLogin:true,
             orderlist: orderlist

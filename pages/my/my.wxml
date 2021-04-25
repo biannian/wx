@@ -9,43 +9,36 @@
         <view style="font-size: 13px;color: #888888;">再累也要记得好好吃饭</view>
       </mp-cell>
       <mp-cell bindtap="toLogin" wx:if="{{!userInfo}}">
-
         <view slot="title" style="position: relative;margin-right: 10px;">
           <image src="/pages/resources/picture/login.png" style="width: 50px; height: 50px; display: block" />
         </view>
-        <view style="font-size:22px;color:#606266">请登录</view> 
+        <view style="font-size:22px;color:#606266">请登录</view>
       </mp-cell>
       <navigator url="/pages/chatRoom/chatRoom">
-      <mp-cell link> 
-        <view style="display: inline-block; vertical-align: middle">我的红包</view> 
-      </mp-cell> 
+        <mp-cell link>
+          <view style="display: inline-block; vertical-align: middle">我的红包</view>
+        </mp-cell>
       </navigator>
-      <mp-cell bindtap="editAddress" link> 
-        <view style="display: inline-block; vertical-align: middle">我的地址</view> 
-      </mp-cell> 
+      <mp-cell bindtap="editAddress" link>
+        <view style="display: inline-block; vertical-align: middle">我的地址</view>
+      </mp-cell>
       <navigator url="/pages/shops/shops">
-      <mp-cell link>
-     
-        <view style="display: inline-block; vertical-align: middle">我的收藏</view> 
-       
-      </mp-cell>
-    </navigator>
+        <mp-cell link>
+          <view style="display: inline-block; vertical-align: middle">我的收藏</view>
+        </mp-cell>
+      </navigator>
       <navigator url="/pages/Login/Login">
-      <mp-cell link>
-      
+        <mp-cell link>
           <view style="display: inline-block; vertical-align: middle">切换账号</view>
-   
-      </mp-cell>
-    </navigator>
+        </mp-cell>
+      </navigator>
       <navigator url="/pages/accountEdit/accountEdit">
-      <mp-cell link>
-
+        <mp-cell link>
           <view style="display: inline-block; vertical-align: middle">密码修改</view>
-     
-      </mp-cell>
-    </navigator>
-      <mp-cell link bindtap="toRider"> 
-          <view style="display: inline-block; vertical-align: middle">骑手入口</view> 
+        </mp-cell>
+      </navigator>
+      <mp-cell link bindtap="toRider">
+        <view style="display: inline-block; vertical-align: middle">骑手入口</view>
       </mp-cell>
       <mp-cell>
         <view bindtap="exit" style="display: inline-block; vertical-align: middle">注销账户</view>

@@ -16,8 +16,7 @@ Page({
     openId:"",
   },
   onLoad() {  
-    this.queryRiderInfo();
-  
+    this.queryRiderInfo(); 
   },
   //查询信息
   queryRiderInfo(){
@@ -127,8 +126,7 @@ Page({
         return;
       } 
       if ("" != this.data.account && "" != this.data.riderName && "" != this.data.riderSex && "" != this.data.riderAddress && "" != this.data.riderTel && "" != this.data.riderAge ) {
-        var account = this.data.account;
-        
+        var account = this.data.account; 
               let a ={
                 name:this.data.riderName,
                 sex:this.data.riderSex,

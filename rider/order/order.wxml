@@ -1,19 +1,20 @@
-<map wx:if="{{order.orderState ==0 || order.orderState ==1 || order.orderState ==2 || order.orderState ==3}}" id="myMap" markers="{{markers}}" style="width:100%;height:200px;" show-location>
+<map wx:if="{{order.orderState ==0 || order.orderState ==1 || order.orderState ==2 || order.orderState ==3}}" id="myMap"
+  markers="{{markers}}" style="width:100%;height:200px;" show-location>
 </map>
-<view  wx:if="{{order.orderState == 5}}" style="background-image: linear-gradient(#409EFF, #E4E7ED);height:100px;"> 
- <view style="padding:20px;color:#fff;font-size:23px;">订单已完成 </view> 
+<view wx:if="{{order.orderState == 5}}" style="background-image: linear-gradient(#409EFF, #E4E7ED);height:100px;">
+  <view style="padding:20px;color:#fff;font-size:23px;">订单已完成 </view>
 </view>
-<view  wx:if="{{order.orderState == -1}}" style="background-image: linear-gradient(#409EFF, #E4E7ED);height:100px;"> 
- <view style="padding:20px;color:#fff;font-size:23px;">订单已取消 </view> 
+<view wx:if="{{order.orderState == -1}}" style="background-image: linear-gradient(#409EFF, #E4E7ED);height:100px;">
+  <view style="padding:20px;color:#fff;font-size:23px;">订单已取消 </view>
 </view>
-<view  wx:if="{{order.orderState == 4}}" style="background-image: linear-gradient(#409EFF, #E4E7ED);height:100px;"> 
- <view style="padding:20px;color:#fff;font-size:23px;">待评价 </view> 
+<view wx:if="{{order.orderState == 4}}" style="background-image: linear-gradient(#409EFF, #E4E7ED);height:100px;">
+  <view style="padding:20px;color:#fff;font-size:23px;">待评价 </view>
 </view>
-<view  wx:if="{{order.orderState == -2}}" style="background-image: linear-gradient(#409EFF, #E4E7ED);height:100px;"> 
- <view style="padding:20px;color:#fff;font-size:23px;">正在退款中 </view> 
+<view wx:if="{{order.orderState == -2}}" style="background-image: linear-gradient(#409EFF, #E4E7ED);height:100px;">
+  <view style="padding:20px;color:#fff;font-size:23px;">正在退款中 </view>
 </view>
 <view style="background-color:#E4E7ED;">
-  <view class="address" >
+  <view class="address">
     <text style="font-size:19px;padding:10px"> {{order.shopName}}</text>
     <view wx:for="{{order.shopping}}" wx:key="index" wx:for-item="shopping">
       <view class="weui-media-box weui-media-box_appmsg">
@@ -30,33 +31,37 @@
             ￥{{shopping.commodityNumber * shopping.commodityPrice}}
           </span>
         </view>
-      </view> 
-    </view> 
-   <span style="font-size:19px;padding:15px;"> 
-  <text >总计:</text>
-  <text style="color:red;"> ￥{{money}}</text> 
-   </span> 
-   <button wx:if="{{order.orderState == 2 }}" bindtap="isArrive" style="margin-left:30%;font-size:16px;color:#409EFF" size="mini">确认送达</button>
+      </view>
+    </view>
+    <span style="font-size:19px;padding:15px;">
+      <text>总计:</text>
+      <text style="color:red;"> ￥{{money}}</text>
+    </span>
+    <button wx:if="{{order.orderState == 2 }}" bindtap="isArrive" style="margin-left:30%;font-size:16px;color:#409EFF"
+      size="mini">确认送达</button>
   </view>
   <view class="tips">
     <view>
       配送信息
     </view>
-    <view >
-      <text style="font-size:15px;color:#909399;">姓名:</text> <text style="float:right">{{order.buyerAddress.buyerName}}</text>
+    <view>
+      <text style="font-size:15px;color:#909399;">姓名:</text> <text
+        style="float:right">{{order.buyerAddress.buyerName}}</text>
     </view>
     <view>
-      <text style="font-size:15px;color:#909399;"> 电话:</text><text style="float:right">{{order.buyerAddress.buyerTel}}</text>
+      <text style="font-size:15px;color:#909399;"> 电话:</text><text
+        style="float:right">{{order.buyerAddress.buyerTel}}</text>
     </view>
     <view>
-      <text style="font-size:15px;color:#909399;"> 地址:</text> <text style="float:right">{{order.buyerAddress.buyerAddress}}</text>
+      <text style="font-size:15px;color:#909399;"> 地址:</text> <text
+        style="float:right">{{order.buyerAddress.buyerAddress}}</text>
     </view>
     <view>
-      <text style="font-size:15px;color:#909399;"> 骑手:</text>  
+      <text style="font-size:15px;color:#909399;"> 骑手:</text>
       <text hidden="{{!order.riderName}}" style="float:right">{{order.riderName}}</text>
     </view>
     <view>
-      <text style="font-size:15px;color:#909399;"> 骑手电话:</text>  
+      <text style="font-size:15px;color:#909399;"> 骑手电话:</text>
       <text hidden="{{!order.riderTel}}" style="float:right">{{order.riderTel}}</text>
     </view>
   </view>
@@ -69,17 +74,20 @@
       <text style="font-size:15px;color:#909399;"> 下单时间:</text><text style="float:right">{{order.orderBuyerTime}}</text>
     </view>
     <view>
-      <text hidden="{{!order.orderSellerTime}}" style="font-size:15px;color:#909399;"> 商家确定时间:</text><text  hidden="{{!order.orderSellerTime}}" style="float:right">{{order.orderSellerTime}}</text>
+      <text hidden="{{!order.orderSellerTime}}" style="font-size:15px;color:#909399;"> 商家确定时间:</text><text
+        hidden="{{!order.orderSellerTime}}" style="float:right">{{order.orderSellerTime}}</text>
     </view>
     <view>
-      <text hidden="{{!order.orderRiderTime}}" style="font-size:15px;color:#909399;"> 骑手接单时间:</text><text  hidden="{{!order.orderRiderTime}}" style="float:right">{{order.orderRiderTime}}</text>
+      <text hidden="{{!order.orderRiderTime}}" style="font-size:15px;color:#909399;"> 骑手接单时间:</text><text
+        hidden="{{!order.orderRiderTime}}" style="float:right">{{order.orderRiderTime}}</text>
     </view>
     <view>
-      <text hidden="{{!order.orderRiderTime1}}" style="font-size:15px;color:#909399;"> 骑手送达时间:</text><text  hidden="{{!order.orderRiderTime1}}" style="float:right">{{order.orderRiderTime1}}</text>
+      <text hidden="{{!order.orderRiderTime1}}" style="font-size:15px;color:#909399;"> 骑手送达时间:</text><text
+        hidden="{{!order.orderRiderTime1}}" style="float:right">{{order.orderRiderTime1}}</text>
     </view>
     <view>
-      <text hidden="{{!order.orderBuyerTime1}}" style="font-size:15px;color:#909399;"> 确认收货时间:</text><text 
-      hidden="{{!order.orderBuyerTime1}}" style="float:right">{{order.orderBuyerTime1}}</text>
+      <text hidden="{{!order.orderBuyerTime1}}" style="font-size:15px;color:#909399;"> 确认收货时间:</text><text
+        hidden="{{!order.orderBuyerTime1}}" style="float:right">{{order.orderBuyerTime1}}</text>
     </view>
     <view>
       <text style="font-size:15px;color:#909399;"> 备注:</text><text style="float:right">{{order.orderTips}}</text>
