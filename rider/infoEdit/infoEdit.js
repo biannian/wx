@@ -99,7 +99,7 @@ Page({
       });
     }
   },  
-  onConfirm() {  
+  onConfirm() {   
     if (!this.data.nameWarning && !this.data.addressWarning && !this.data.telWarning && !this.data.ageWarning) {
       var message = "";
       if ("" == this.data.riderTel) {

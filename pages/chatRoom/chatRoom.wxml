@@ -1,1 +1,25 @@
-<view></view>
+<view>
+  <view >
+  <block wx:for = "{{voucher}}" wx:key ='index'>
+    <view class="kqm" >
+      <!-- 劵名称 -->
+      <view class="kql">
+        <view class="knq">
+          <text>{{item.yh_quan}}优惠券</text>
+        </view>
+        <view class="knm">
+          <text>有效期至：{{start_time}}</text>
+        </view>
+      </view>
+      <view class="kqy">
+        <image  class="kqma"></image>
+        <view  bindtap="toIndex" class="knums">
+          <!-- 劵的金额 -->
+          <text class="ms">{{item.money_num}}</text>
+        </view>
+      </view>
+    </view>
+    </block>
+  </view>
+</view>
+ 

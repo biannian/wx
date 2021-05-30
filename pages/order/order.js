@@ -96,7 +96,7 @@ Page({
           latitude: buyerLatitude,
           longitude: buyerLongitude,
         }]
-        marker = {
+       var marker = {
           id: 0,
           title: res.title,
           latitude: buyerLatitude,

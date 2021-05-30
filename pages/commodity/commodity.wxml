@@ -43,7 +43,7 @@
 	<orderFood shopId="{{shopId}}" scrollTop="{{scrollTop}}"></orderFood>
 </view>
 <view hidden="{{current != 1 }}">
-	<comment></comment>
+	<comment  shopId="{{shopId}}"></comment>
 </view>
 <view hidden="{{current != 2 }}">
 	<shopInfo shopId="{{shopId}}"></shopInfo>

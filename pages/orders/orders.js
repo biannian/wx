@@ -20,8 +20,15 @@
      this.queryAllShop();
    },
    toComment(e){
+    var shopId ;
+    var orders = this.data.orderlist.orders; 
+    orders.forEach((order)=>{
+      if(order.orderId == e.currentTarget.id){
+        shopId = order.shopId
+      }
+    }) 
     wx.navigateTo({
-      url: '/pages/makeComment/makeComment?orderId=' + e.currentTarget.id,
+      url: '/pages/makeComment/makeComment?orderId=' + e.currentTarget.id + '&shopId=' +shopId,
     })
    },
    queryAllShop() {
@@ -42,8 +49,7 @@
         })
      }  
    },
-   toShop(e) {
-    
+   toShop(e) { 
      wx.navigateTo({
        url: '/pages/commodity/commodity?shopId=' + e.currentTarget.id,
      })
