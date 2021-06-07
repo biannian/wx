@@ -129,8 +129,7 @@ Component({
               })
             }
           });
-        }
-
+        } 
         var shop = this.data.shop;
         shop.commodity = commodityIndex;
         this.setData({

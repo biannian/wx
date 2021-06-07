@@ -35,7 +35,6 @@ Page({
       shopName: shopName,
     })
   },
-
   //添加餐具
   bindPickerChange(e) {
     var tablewares = this.data.tablewares;
@@ -61,7 +60,7 @@ Page({
           buyerSex: 1,
           buyerAddress: res.provinceName + res.cityName + res.countyName + res.detailInfo,
           buyerTel: res.telNumber
-        } 
+        }
         $api.updateAddress(addressMessage)
           .then((response) => {
             wx.showToast({
@@ -75,10 +74,12 @@ Page({
   },
   //从后台查询买家地址
   getBuyerAddress() {
-    var accountName = wx.getStorageSync('accountName'); 
+    var accountName = wx.getStorageSync('accountName');
     $api.getBuyerAddress(accountName)
       .then((resp) => {
-        if (resp.data.code == -1) {} else {
+        if (resp.data.code == -1) {
+          
+        } else {
           var address = resp.data.result;
           this.setData({
             buyerAccountName: accountName,
@@ -109,6 +110,11 @@ Page({
   pwd(e) {
     this.setData({
       pwd: e.detail.value
+    })
+  },
+  chooseCoupon(){
+    wx.navigateTo({
+      url: "/pages/chatRoom/chatRoom"
     })
   },
   checkPwd() {

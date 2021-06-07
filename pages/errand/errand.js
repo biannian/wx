@@ -44,7 +44,6 @@ Page({
       accountName:accountName
     }
     console.log(param);
-   
   },
   whereToAddress(){
     var _this = this; 

@@ -32,7 +32,7 @@ Page({
         this.setData({
             shops: res.data.result
         }) 
-    })
+    }) 
   },
   toSearch(){
     wx.navigateTo({

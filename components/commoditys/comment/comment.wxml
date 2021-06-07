@@ -1,12 +1,22 @@
 <view class="page__bd">
-	<mp-cells title="带图标、说明的列表项" footer="已经到底了">
-		<view>
-			<mp-cell value="标题文字" footer="说明文字">
-				<image slot="icon" src="{{icon}}" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;">
-				</image> 
+	<mp-cells footer="已经到底了">
+		<view wx:for="{{comments}}" wx:for-item="comment" wx:key="index">
+			<mp-cell value="{{comment.wxName}} " footer="{{comment.commentTime}}">
+				<image slot="icon" src="{{comment.wxImage}}"
+					style="margin-right: 16px;vertical-align:middle;width:40px; height: 40px;">
+				</image>
 			</mp-cell>
-			<span>123</span>
+			<view style="margin-left:16px">
+				<text >{{comment.commentInfo}}</text>
+				</view>
+				<text>\n</text>
+				<view hidden="{{comment.shopReply  == null}}" style="margin-left:16px">
+				<text >商家回复：</text>
+				<text style="float:right;margin-right:16px;color:#909399">{{comment.shopReplyTime}}</text> 
+				<view>{{comment.shopReply}}</view>
+				</view>
 		</view>
-		
 	</mp-cells>
 </view>
+<text>\n</text>
+<text>\n</text>

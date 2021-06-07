@@ -22,9 +22,9 @@ Page({
     onLoad(options) {
         this.setData({
             selectFile: this.selectFile.bind(this),
-            uplaodFile: this.uplaodFile.bind(this), 
+            uplaodFile: this.uplaodFile.bind(this),
             shopId: options.shopId,
-            orderId: options.orderId 
+            orderId: options.orderId
         })
     },
     addComment() {
@@ -36,32 +36,33 @@ Page({
                 icon: 'error',
                 duration: 1500
             })
+            return;
         }
         params.shopId = this.data.shopId;
-        params. orderId  = this.data.orderId;
+        params.orderId = this.data.orderId;
         params.commentInfo = this.data.text;
         params.accountName = wx.getStorageSync('accountName');
-        params.commentTime = commentTime; 
+        params.commentTime = commentTime;
         var param = {
             orderId: this.data.orderId,
             orderState: '5',
         }
         $api.addComment(params)
             .then((res) => {
-                if(res.data.code == 200){
+                if (res.data.code == 200) {
                     $api.updateState(param)
-                    .then((res) => {
-                       if(res.data.code == 200){
-                        wx.showToast({
-                            title: '评分成功',
-                            icon: 'success',
-                            duration: 1500
+                        .then((res) => {
+                            if (res.data.code == 200) {
+                                wx.showToast({
+                                    title: '评分成功',
+                                    icon: 'success',
+                                    duration: 1500
+                                })
+                                wx.navigateBack({
+                                    delta: 1
+                                })
+                            }
                         })
-                        wx.navigateBack({
-                            delta: 1
-                          })
-                       }
-                    })
                 }
             })
     },
@@ -89,19 +90,33 @@ Page({
         // 返回false可以阻止某次文件上传
     },
     uplaodFile(files) {
+        var picture = files.tempFilePaths
+        wx.request({
+            url: 'http://localhost:8087/shop/pictureAdd.do', //仅为示例，并非真实的接口地址
+            data:picture,
+            method: 'post',
+            header: {
+                'content-type': `multipart/form-data`,
+                'token': wx.getStorageSync('token') ? wx.getStorageSync('token') : ""
+            },
+            success(res) {
+                console.log(res.data)
+            }
+        })
         console.log('upload files', files)
         // 文件上传的函数，返回一个promise
         return new Promise((resolve, reject) => {
-
+          
         })
     },
     uploadError(e) {
         console.log('upload error', e.detail)
     },
     uploadSuccess(e) {
+      
         console.log('upload success', e.detail)
     },
-    radioChange(e) { 
+    radioChange(e) {
         this.setData({
             comment: {
                 commentScore: e.detail.value

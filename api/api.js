@@ -26,7 +26,8 @@ const API = {
     riderUpdateState: (data) => request('POST',`/Order/riderUpdateState.do`, data),
     deleteOrder: (data) => request('GET',`/Order/deleteOrder.do`, data),
     addComment: (data) => request('POST',`/shop/addComment.do`, data),
-    selectComment: (data) => request('GET',`/shop/selectComment.do`, data),
+    selectComment: (data) => request('GET',`/shop/selectComment.do`, data), 
+  
 };
 module.exports = {
     API: API
