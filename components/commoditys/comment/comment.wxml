@@ -10,7 +10,7 @@
 				<text >{{comment.commentInfo}}</text>
 				</view>
 				<text>\n</text>
-				<view hidden="{{comment.shopReply  == null}}" style="margin-left:16px">
+				<view hidden="{{comment.shopReply  == null}}" style="margin-left:16px;color:#606266;background-color:#F2F6FC">
 				<text >商家回复：</text>
 				<text style="float:right;margin-right:16px;color:#909399">{{comment.shopReplyTime}}</text> 
 				<view>{{comment.shopReply}}</view>
